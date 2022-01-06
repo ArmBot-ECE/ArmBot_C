@@ -39,7 +39,7 @@ All the commits you have done must be pushed to the git server in order to make 
 
 When you are done, you must create a **Pull Request** in order to merge your branch with the **master**.
 
-**/!\** All Changes merged to the master must be stable and properly implementing. The master is an equivalent of a production server **/!\**
+**All Changes merged to the master must be stable and properly implementing. The master is an equivalent of a production server**
 
 Find all information about merging branches : [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 
