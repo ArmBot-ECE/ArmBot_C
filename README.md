@@ -28,6 +28,7 @@ If necessary, you can synchronize your branch with **master** in order to fetch 
 # Commit changes
 
 Simply use:
+
 `$ git commit -m "Your message here"`
 
 
