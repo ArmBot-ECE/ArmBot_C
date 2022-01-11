@@ -34,19 +34,19 @@ int main(int argc, char *argv[]){
 *  ---------------------------------------------------- */
 
         // Left check
-        setLeftAngle();
+//        setLeftAngle();
         delay(1000);
         leftDistance = getDistance();
         delay(100);
         
         // Right check
-        setRightAngle();
+//        setRightAngle();
         delay(1000);
         rightDistance = getDistance();
         delay(100);
         
         // Back to center position
-        setCenterAngle();
+//        setCenterAngle();
         delay(1000);
         centerDistance = getDistance();
         delay(100);
@@ -87,7 +87,7 @@ int main(int argc, char *argv[]){
         }
         // Stop motors
         stopMotors();
-        
+
     // Back to beginning of loop 
     }
 
