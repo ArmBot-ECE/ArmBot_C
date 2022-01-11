@@ -87,10 +87,7 @@ int main(int argc, char *argv[]){
         }
         // Stop motors
         stopMotors();
-        // Stop = red light
-        LedRed();
-        // Take a picture
-        initializeCamera();   
+        
     // Back to beginning of loop 
     }
 
@@ -110,5 +107,5 @@ void initialize_AllFunctions(){
     
     // Setup servo motor
     initializeServoMotor();
-    
+
 }
