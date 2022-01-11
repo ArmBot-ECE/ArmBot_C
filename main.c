@@ -74,10 +74,7 @@ int main(int argc, char *argv[]){
 /* ----------------------------------------------------
 *  -     Move forward until it reaches an obstacle    -
 *  ---------------------------------------------------- */
-        
-        // Moving = green LED
-        LedGreen();
-        
+
         // Start to check distance
         centerDistance = getDistance();
 
@@ -105,9 +102,6 @@ void initialize_AllFunctions(){
     // Setup de wiringPi
     wiringPiSetup();
 
-    // Setup camera
-    initializeCamera();
-
     // Setup DC motors
     initializeDCMotors();
     
@@ -117,6 +111,4 @@ void initialize_AllFunctions(){
     // Setup servo motor
     initializeServoMotor();
     
-    // Setup led
-    initialize_Led();
 }
