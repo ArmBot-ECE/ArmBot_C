@@ -3,10 +3,8 @@
 #include <wiringPi.h>
 //Include C files
 #include "servoMotorControl.c"
-#include "camera_V2.c"
 #include "DCMotor.c"
 #include "Ultrason.c"
-#include "Led.c"
 
 // Include prototype function
 void initialize_AllFunctions();
