@@ -25,9 +25,9 @@ int getDistance() {
 
     int distance;
 
-    printf("-------------------------\n")
+    printf("-------------------------\n");
     printf("-    Getting distance   -\n");
-    printf("-------------------------\n")
+    printf("-------------------------\n");
 
     // Send trig pulse
     printf("* Send trig pulse\n");
