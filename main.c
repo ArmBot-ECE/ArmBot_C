@@ -27,71 +27,77 @@ int main(int argc, char *argv[]){
     while (1)
     {
 
-        //Start first move by checking best direction to go
+//        //Start first move by checking best direction to go
+//
+///* ----------------------------------------------------
+//*  -         Check left and right for direction       -
+//*  ---------------------------------------------------- */
+//
+//        // Left check
+////        setLeftAngle();
+//        delay(1000);
+//        leftDistance = getDistance();
+//        delay(100);
+//
+//        // Right check
+////        setRightAngle();
+//        delay(1000);
+//        rightDistance = getDistance();
+//        delay(100);
+//
+//        // Back to center position
+////        setCenterAngle();
+//        delay(1000);
+//        centerDistance = getDistance();
+//        delay(100);
+//
+//        //----- Compare distance for direction -------
+//        //Move forward if nothing blocks the way
+//        if(centerDistance == 1000000){
+//            moveForward();
+//        }
+//        else if (leftDistance == rightDistance) {
+//        // It can be right or left so let's say right because right is always right ;)
+//            turnRight();
+//            delay(1000);
+//        }
+//        else if (leftDistance > rightDistance) {
+//            turnLeft();
+//            delay(1000);
+//        }
+//        else if (leftDistance < rightDistance) {
+//            turnRight();
+//            delay(1000);
+//        }
+//
+//
+///* ----------------------------------------------------
+//*  -     Move forward until it reaches an obstacle    -
+//*  ---------------------------------------------------- */
+//
+//        // Start to check distance
+//        centerDistance = getDistance();
+//
+//        // Move forward until obstacle
+//        while(centerDistance > 30) {
+//// il faudrait afficher la distance dans la console sans spam de milliers de print par seconde...
+//            //printf("Distance: %dcm\n", dist);
+//            moveForward();
+//            centerDistance = getDistance();
+//        }
+//        // Stop motors
+//        stopMotors();
+//
+//    // Back to beginning of loop
+//    }
+//
+//    printf("Exiting the loop.\nA problem happened...\n");
 
-/* ----------------------------------------------------
-*  -         Check left and right for direction       -
-*  ---------------------------------------------------- */
+    int distance = getDistance();
+    printf("Distance : %d", distance);
+    //Sleep for 100ms
+    sleep(0.1);
 
-        // Left check
-//        setLeftAngle();
-        delay(1000);
-        leftDistance = getDistance();
-        delay(100);
-        
-        // Right check
-//        setRightAngle();
-        delay(1000);
-        rightDistance = getDistance();
-        delay(100);
-        
-        // Back to center position
-//        setCenterAngle();
-        delay(1000);
-        centerDistance = getDistance();
-        delay(100);
-
-        //----- Compare distance for direction -------
-        //Move forward if nothing blocks the way
-        if(centerDistance == 1000000){
-            moveForward();
-        }
-        else if (leftDistance == rightDistance) {
-        // It can be right or left so let's say right because right is always right ;)
-            turnRight();
-            delay(1000);
-        }
-        else if (leftDistance > rightDistance) {
-            turnLeft();
-            delay(1000);
-        }
-        else if (leftDistance < rightDistance) {
-            turnRight();
-            delay(1000);
-        }
-        
-
-/* ----------------------------------------------------
-*  -     Move forward until it reaches an obstacle    -
-*  ---------------------------------------------------- */
-
-        // Start to check distance
-        centerDistance = getDistance();
-
-        // Move forward until obstacle
-        while(centerDistance > 30) {
-// il faudrait afficher la distance dans la console sans spam de milliers de print par seconde...
-            //printf("Distance: %dcm\n", dist);
-            moveForward();
-            centerDistance = getDistance();
-        }
-        // Stop motors
-        stopMotors();
-
-    // Back to beginning of loop 
-    }
-
-    printf("Exiting the loop.\nA problem happened...\n");
     return 0;
 }
 
