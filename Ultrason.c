@@ -10,6 +10,8 @@
 
 
 void initializeUS_sensor() {
+    printf("Initializing ultrasonic sensor...\n");
+
     // I/O
     pinMode(TRIG, OUTPUT);
     pinMode(ECHO, INPUT);
@@ -22,6 +24,8 @@ void initializeUS_sensor() {
 int getDistance() {
 
     int distance;
+
+    printf("Getting distance...\n");
 
     // Send trig pulse
     digitalWrite(TRIG, HIGH);
@@ -42,6 +46,7 @@ int getDistance() {
     
     // If we have an echo we calculate travelTime
     if (isSignalBack) {
+        printf("Got signal back from trigger\n");
         //Wait for echo end
         long startTime = micros();
         while(digitalRead(ECHO) == HIGH);
