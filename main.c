@@ -140,5 +140,5 @@ void initialize_AllFunctions(){
     // TODO handle errors during initialization
     printf("------------------------------------------------\n");
     printf("-             Initialize complete              -\n");
-    printf("------------------------------------------------\n");
+    printf("------------------------------------------------\n\n\n");
 }
