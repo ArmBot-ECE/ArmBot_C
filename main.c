@@ -98,8 +98,10 @@ int main(int argc, char *argv[]){
     //Sleep for 100ms
     delay(100);
 
-    return 0;
     }
+
+    //We shouldn't be here
+    return 1;
 }
 
 void initialize_AllFunctions(){
