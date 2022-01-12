@@ -96,7 +96,7 @@ int main(int argc, char *argv[]){
     int distance = getDistance();
     printf("Distance : %d", distance);
     //Sleep for 100ms
-    sleep(0.1);
+    delay(100);
 
     return 0;
 }
