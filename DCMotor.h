@@ -2,8 +2,8 @@
 //  DCMotor.h
 //  RaspberryPi
 //
-//  Created by Boulon Marie on 09/11/2020.
-//  Copyright © 2020 Troyan Hugo. All rights reserved.
+//  Created by Troyan Hugo on 05/01/2022.
+//  Copyright © 2022 Troyan Hugo. All rights reserved.
 //
 
 #ifndef DCMotor_h

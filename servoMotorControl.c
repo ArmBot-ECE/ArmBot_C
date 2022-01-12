@@ -67,8 +67,8 @@ void setPulse(int angle) {
     printf("* Angle : %d°\n", angle);
     //TODO définir une loi de commande propre
     // Valeur_PWM = 1.1056*Angle + 64
-    //Min = 64
-    //Max = 263
+    //Min = 64 (0°)
+    //Max = 263 (180°)
 
     if (angle < 180 && angle > 0) {
         pwmWrite(SERVO, round(1.1056*angle + 64));
