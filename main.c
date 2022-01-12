@@ -99,6 +99,7 @@ int main(int argc, char *argv[]){
     delay(100);
 
     return 0;
+    }
 }
 
 void initialize_AllFunctions(){
