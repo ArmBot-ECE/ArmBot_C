@@ -97,8 +97,11 @@ int main(int argc, char *argv[]){
 //    printf("Exiting the loop.\nA problem happened...\n");
 
     distance = getDistance();
-    if(distance == )
-    printf("Distance : %d\n", distance);
+    if(distance == 1000000) {
+        printf("No obstacle found\n");
+    } else {
+        printf("Distance : %d\n", distance);
+    }
     //Sleep for 500ms
     delay(5000);
 
