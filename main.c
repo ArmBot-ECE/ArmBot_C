@@ -96,9 +96,9 @@ int main(int argc, char *argv[]){
 //    printf("Exiting the loop.\nA problem happened...\n");
 
     distance = getDistance();
-    printf("Distance : %d", distance);
-    //Sleep for 100ms
-    delay(100);
+    printf("Distance : %d\n", distance);
+    //Sleep for 500ms
+    delay(5000);
 
     }
 
