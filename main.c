@@ -23,6 +23,8 @@ int main(int argc, char *argv[]){
     int leftDistance;
     int rightDistance;
     int centerDistance;
+
+    int distance;
     
     while (1)
     {
@@ -93,7 +95,7 @@ int main(int argc, char *argv[]){
 //
 //    printf("Exiting the loop.\nA problem happened...\n");
 
-    int distance = getDistance();
+    distance = getDistance();
     printf("Distance : %d", distance);
     //Sleep for 100ms
     delay(100);
