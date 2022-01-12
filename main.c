@@ -18,7 +18,6 @@ void initialize_AllFunctions();
 int main(int argc, char *argv[]){
     
     // Initialize all sensors and functions*
-    printf("-----------------------------------------\n-  Starting initialize all peripheral devices  -\n-----------------------------------------\n");
     initialize_AllFunctions();
     
     int leftDistance;
@@ -112,16 +111,24 @@ int main(int argc, char *argv[]){
 }
 
 void initialize_AllFunctions(){
+    printf("------------------------------------------------\n");
+    printf("-  Starting initialize all peripheral devices  -\n");
+    printf("------------------------------------------------\n");
+
     // Setup de wiringPi
     wiringPiSetup();
 
     // Setup DC motors
-    initializeDCMotors();
+//    initializeDCMotors();
     
     // Setup ultrasonic sensor
+    printf("* Initializing ultrasonic sensor...\n");
     initializeUS_sensor();
-    
+
     // Setup servo motor
+    printf("* Initializing servomotors...\n");
     initializeServoMotor();
 
+    // TODO handle errors during initialization
+    printf("Done\n\n");
 }
