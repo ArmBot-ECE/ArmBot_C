@@ -37,7 +37,8 @@
 
 
 void initializeServoMotor(){
-    printf("Initializing servomotors...\n");
+// TODO handle errors during initialization
+    printf("* Initializing servomotors...\n");
     //set as PWM
     pinMode(SERVO, PWM_OUTPUT);
     //set MarkSpaced mode

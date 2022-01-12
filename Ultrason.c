@@ -10,7 +10,8 @@
 
 
 void initializeUS_sensor() {
-    printf("Initializing ultrasonic sensor...\n");
+// TODO handle errors during initialization
+    printf("* Initializing ultrasonic sensor...\n");
 
     // I/O
     pinMode(TRIG, OUTPUT);

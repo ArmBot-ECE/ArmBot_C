@@ -17,7 +17,8 @@ void initialize_AllFunctions();
 // le setServoMotor qui bloque assez longtemps sans bloquer le processus et qu'il fasse la capteur de la distance ? (l30 - 40)
 int main(int argc, char *argv[]){
     
-    // Initialize all sensors and functions
+    // Initialize all sensors and functions*
+    printf("-----------------------------------------\n-  Starting initialize all peripheral devices  -\n-----------------------------------------\n");
     initialize_AllFunctions();
     
     int leftDistance;
@@ -96,6 +97,7 @@ int main(int argc, char *argv[]){
 //    printf("Exiting the loop.\nA problem happened...\n");
 
     distance = getDistance();
+    if(distance == )
     printf("Distance : %d\n", distance);
     //Sleep for 500ms
     delay(5000);
