@@ -37,6 +37,7 @@
 
 
 void initializeServoMotor(){
+    printf("Initializing servomotors...\n");
     //set as PWM
     pinMode(SERVO, PWM_OUTPUT);
     //set MarkSpaced mode
