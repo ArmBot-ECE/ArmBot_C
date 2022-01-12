@@ -138,5 +138,7 @@ void initialize_AllFunctions(){
     initializeServoMotor();
 
     // TODO handle errors during initialization
-    printf("Done\n\n");
+    printf("------------------------------------------------\n");
+    printf("-             Initialize complete              -\n");
+    printf("------------------------------------------------\n");
 }
