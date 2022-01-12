@@ -97,9 +97,9 @@ int main(int argc, char *argv[]){
 
     distance = getDistance();
     if(distance == 1000000) {
-        printf("No obstacle found\n");
+        printf("No obstacle found\n\n");
     } else {
-        printf("Distance : %d\n", distance);
+        printf("Distance : %d\n\n", distance);
     }
     //Sleep for 500ms
     delay(5000);

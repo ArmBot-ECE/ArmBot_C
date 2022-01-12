@@ -60,6 +60,11 @@ void initializeServoMotor(){
 }
 
 void setPulse(int angle) {
+    printf("---------------------------\n");
+    printf("-    Set angle to servo   -\n");
+    printf("---------------------------\n");
+
+    printf("* Angle : %d°\n", angle);
     //TODO définir une loi de commande propre
     // Valeur_PWM = 1.1056*Angle + 64
     //Min = 64
@@ -68,7 +73,7 @@ void setPulse(int angle) {
     if (angle < 180 && angle > 0) {
         pwmWrite(SERVO, round(1.1056*angle + 64));
     } else {
-        printf("Error with angle : %d", angle);
+        printf("Error with angle : %d\n", angle);
     }
 }
 
