@@ -39,7 +39,7 @@ int getDistance() {
     printf("* Send trig pulse\n");
     digitalWrite(TRIG, HIGH);
     // Pulse 20 microsec long
-    delayMicroseconds(100);
+    delayMicroseconds(20);
     // Back to LOW
     digitalWrite(TRIG, LOW);
     printf("* Wait for echo for 2ms\n");
