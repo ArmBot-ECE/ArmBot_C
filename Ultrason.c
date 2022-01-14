@@ -47,6 +47,7 @@ int getDistance() {
     int isSignalBack = 0;
     for (int i = 0; i < 2000; i++) {
         if (digitalRead(ECHO) == HIGH) {
+            printf("Been here");
             isSignalBack = 1;
             break;
         }
