@@ -49,7 +49,7 @@ int *getDistance() {
     static int distance[4];
 
     printf("-------------------------\n");
-    printf("-    Getting distance   -\n");
+    printf("-    Getting lollllolllol distance   -\n");
     printf("-------------------------\n");
 
     printf("1");
