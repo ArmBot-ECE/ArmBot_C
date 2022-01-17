@@ -33,22 +33,22 @@ int main(int argc, char *argv[]){
     printf("------------------------------------------------\n\n");
     
     while (1) {
-        distance = getDistance();
+        distanceSensors = getDistance();
 
-        if(*distance[0] == 1000000 && *distance[1] == 1000000 && *distance[2] == 1000000 && *distance[3] == 1000000) {
+        if(*distanceSensors[0] == 1000000 && *distanceSensors[1] == 1000000 && *distanceSensors[2] == 1000000 && *distanceSensors[3] == 1000000) {
             printf("No obstacle found\n\n");
         } else {
-            if(*distance[0] != 1000000) {
-                printf("Obstacle found by sensor 1, distance : %d\n", *distance[0]);
+            if(*distanceSensors[0] != 1000000) {
+                printf("Obstacle found by sensor 1, distance : %d\n", *distanceSensors[0]);
             }
-            if(*distance[1] != 1000000) {
-                printf("Obstacle found by sensor 2, distance : %d\n", *distance[1]);
+            if(*distanceSensors[1] != 1000000) {
+                printf("Obstacle found by sensor 2, distance : %d\n", *distanceSensors[1]);
             }
-            if(*distance[2] != 1000000) {
-                printf("Obstacle found by sensor 3, distance : %d\n", *distance[2]);
+            if(*distanceSensors[2] != 1000000) {
+                printf("Obstacle found by sensor 3, distance : %d\n", *distanceSensors[2]);
             }
-            if(*distance[3] != 1000000) {
-                printf("Obstacle found by sensor 4, distance : %d\n", *distance[3]);
+            if(*distanceSensors[3] != 1000000) {
+                printf("Obstacle found by sensor 4, distance : %d\n", *distanceSensors[3]);
             }
 
         }
