@@ -18,9 +18,9 @@
 // Second ultrasonic sensor
 #define ECHO2 6 // GPIO 25 - pin 22
 // Third ultrasonic sensor
-#define ECHO3 27 // GPIO 8 - pin 24
+#define ECHO3 27 // GPIO 16 - pin 36
 // Fourth ultrasonic sensor
-#define ECHO4 28 // GPIO 7 - pin 26
+#define ECHO4 28 // GPIO 20 - pin 38
 
 /*
     Initialize all pins for ultrasonic sensors
@@ -53,13 +53,9 @@ int *getDistance() {
     printf("-------------------------\n");
 
     distance[0] = checkForDistance(1);
-    printf("XXXXXXXXXXX\n");
     distance[1] = checkForDistance(2);
-    printf("XXXXXXXXXXX\n");
     distance[2] = checkForDistance(3);
-    printf("XXXXXXXXXXX\n");
     distance[3] = checkForDistance(4);
-    printf("XXXXXXXXXXX\n");
 
     return distance;
 }
@@ -70,7 +66,6 @@ int *getDistance() {
 */
 int checkForDistance(int sensorPosition) {
 
-    printf("1\n");
     char isSignalBack = 0;
     int sensorPinEcho;
     int distance;
@@ -94,7 +89,6 @@ int checkForDistance(int sensorPosition) {
             break;
     }
 
-    printf("2\n");
     // Send trig pulse to all sensors
     digitalWrite(TRIG, HIGH);
     // Pulse 20 microsec long
@@ -111,10 +105,8 @@ int checkForDistance(int sensorPosition) {
         delayMicroseconds(1);
     }
 
-    printf("isSignalBack : %d\n", isSignalBack);
     // If we have an echo we calculate travelTime
     if (isSignalBack) {
-        printf("The fuck\n");
         //Wait for echo end
         long startTime = micros();
         while(digitalRead(sensorPinEcho) == HIGH);
@@ -124,10 +116,8 @@ int checkForDistance(int sensorPosition) {
         distance = travelTime / 58;
     }
     else {
-        printf("The fuck2\n");
         distance = 1000000;
     }
 
-    printf("Returning distance...\n");
     return distance;
 }
