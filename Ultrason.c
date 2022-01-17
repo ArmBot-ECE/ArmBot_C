@@ -18,9 +18,9 @@
 // Second ultrasonic sensor
 #define ECHO2 6 // GPIO 25 - pin 22
 // Third ultrasonic sensor
-#define ECHO3 10 // GPIO 8 - pin 24
+#define ECHO3 27 // GPIO 8 - pin 24
 // Fourth ultrasonic sensor
-#define ECHO4 11 // GPIO 7 - pin 26
+#define ECHO4 28 // GPIO 7 - pin 26
 
 /*
     Initialize all pins for ultrasonic sensors
