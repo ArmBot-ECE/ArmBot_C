@@ -35,20 +35,20 @@ int main(int argc, char *argv[]){
     while (1) {
         distanceSensors = getDistance();
 
-        if(*distanceSensors == 1000000 && *(distanceSensors+1) == 1000000 && *distanceSensors[2] == 1000000 && *distanceSensors[3] == 1000000) {
+        if(*distanceSensors == 1000000 && *(distanceSensors+1) == 1000000 && *(distanceSensors+2) == 1000000 && *(distanceSensors+3) == 1000000) {
             printf("No obstacle found\n\n");
         } else {
-            if(*distanceSensors[0] != 1000000) {
-                printf("Obstacle found by sensor 1, distance : %d\n", *distanceSensors[0]);
+            if(*distanceSensors != 1000000) {
+                printf("Obstacle found by sensor 1, distance : %d\n", *distanceSensors);
             }
-            if(*distanceSensors[1] != 1000000) {
-                printf("Obstacle found by sensor 2, distance : %d\n", *distanceSensors[1]);
+            if(*(distanceSensors+1) != 1000000) {
+                printf("Obstacle found by sensor 2, distance : %d\n", *(distanceSensors+1));
             }
-            if(*distanceSensors[2] != 1000000) {
-                printf("Obstacle found by sensor 3, distance : %d\n", *distanceSensors[2]);
+            if(*(distanceSensors+2) != 1000000) {
+                printf("Obstacle found by sensor 3, distance : %d\n", *(distanceSensors+2));
             }
-            if(*distanceSensors[3] != 1000000) {
-                printf("Obstacle found by sensor 4, distance : %d\n", *distanceSensors[3]);
+            if(*(distanceSensors+3) != 1000000) {
+                printf("Obstacle found by sensor 4, distance : %d\n", *(distanceSensors+3));
             }
 
         }
