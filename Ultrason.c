@@ -46,13 +46,15 @@ void initializeUS_sensor() {
 int *getDistance() {
 
     // Distance variable for each ultrasonic sensors
-    int distance[4];
+    static int distance[4];
 
     printf("-------------------------\n");
     printf("-    Getting distance   -\n");
     printf("-------------------------\n");
 
+    printf("1");
     distance[0] = checkForDistance(1);
+    printf("1");
     distance[1] = checkForDistance(2);
     distance[2] = checkForDistance(3);
     distance[3] = checkForDistance(4);
