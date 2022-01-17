@@ -14,9 +14,11 @@
 #include <wiringPi.h>
 #include <math.h>
 
-#define SERVO 1 //Equivalent WiringPi 0 : GPIO 23
+#define SERVO1 23 // GPIO 13 - pin 33
+#define SERVO2 24 // GPIO 19 - pin 35
+#define SERVO3 1 // GPIO 18 - pin 12
 
-
+// TODO A traduire
 // ---------------------------------------------------
 // -                  ANALOGIQUE                     -
 // ---------------------------------------------------
@@ -35,72 +37,86 @@
 // Un angle de 90° correspond a 1500µs à l'état haut
 // Un angle de 180° correspond a 2500µs à l'état haut
 
+/*
+    Initialize all pins for servomotors
+    Frequency = 19.2MHz / (PMWC * PWMR)
+    PWMR
+    PWMC is clock divider
 
+    We want 300 Hz : 300 = 19.2MHz / (PWMC * PWMR)
+    PWMC = 64
+    PWMR = 1000
+*/
 void initializeServoMotor(){
-// TODO handle errors during initialization
-    //set as PWM
-    pinMode(SERVO, PWM_OUTPUT);
-    //set MarkSpaced mode
+    // Set as PWM
+    pinMode(SERVO1, PWM_OUTPUT);
+    pinMode(SERVO2, PWM_OUTPUT);
+    pinMode(SERVO3, PWM_OUTPUT);
+    // Set MarkSpaced mode
     pwmSetMode(PWM_MODE_MS);
 
-    //Frequency : 19.2MHz/ (PMWC * PWMR)
-    //PWMR
-    //PWMC is clock divider
-
-    // We want 300 Hz : 300 = 19.2MHz / (PWMC * PWMR)
-    // PWMC = 64
-    // PWMR = 1000
-    // We start at angle 90° (central position)
-//    pwmSetRange(2000);
-//    pwmSetClock(192);
-//    setPulse(90);
+    // Setup PWM
     pwmSetRange(1000);
     pwmSetClock(64);
     setPulse(90);
 }
 
-void setPulse(int angle) {
-    printf("---------------------------\n");
-    printf("-    Set angle to servo   -\n");
-    printf("---------------------------\n");
+/*
+    Set PWM command signal for servomotor with specific angle
+    Between 0° and 180°
+*/
+int setPulse(int angle, int servomotorPosition) {
+    int servomotorPin;
+
+    //Setup which servomotor to control
+    switch (servomotorPosition) {
+        case 1:
+            servomotorPin = SERVO1;
+            break;
+        case 2:
+            servomotorPin = SERVO2;
+            break;
+        case 3:
+            servomotorPin = SERVO3;
+            break;
+        default:
+            printf("No servomotor selected.\nExit...\n");
+            return 1;
+    }
+
+    printf("-----------------------------\n");
+    printf("-    Set angle to servo %d   -\n", servomotorPosition);
+    printf("-----------------------------\n");
 
     printf("* Angle : %d°\n", angle);
+
     //TODO définir une loi de commande propre
     // Valeur_PWM = 1.1056*Angle + 64
     //Min = 64 (0°)
     //Max = 263 (180°)
 
     if (angle < 180 && angle > 0) {
-        pwmWrite(SERVO, round(1.1056*angle + 64));
+        pwmWrite(servomotorPin, round(1.1056*angle + 64));
+        return 0;
     } else {
         printf("Error with angle : %d\n", angle);
+        return 1;
     }
 }
 
+// TODO
 //Attention avec cette fonction, le signal recu doit être périodique
 // S'il recoit 5000 1 par seconde il va très vite atteindre sa valeur max
-void incrementAngle(int* currentAngle) {
+void incrementAngle(int *currentAngle) {
     if (*currentAngle < 180) {
         *currentAngle++;
         pwmWrite(SERVO, round(1.1056*(*currentAngle) + 64));
     }
 }
 
-void decrementAngle(int* currentAngle) {
+void decrementAngle(int *currentAngle) {
     if (*currentAngle > 0) {
         *currentAngle--;
         pwmWrite(SERVO, round(1.1056*(*currentAngle) + 64));
     }
 }
-
-//void setRightAngle() {
-//    setPulse(0);
-//}
-//
-//void setCenterAngle() {
-//    setPulse(90);
-//}
-//
-//void setLeftAngle() {
-//    setPulse(180);
-//}
