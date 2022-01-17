@@ -68,6 +68,7 @@ int checkForDistance(int sensorPosition) {
 
     char isSignalBack = 0;
     int sensorPinEcho;
+    int distance;
 
     switch (sensorPosition) {
         case 1:
