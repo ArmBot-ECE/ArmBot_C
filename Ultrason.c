@@ -90,7 +90,7 @@ int checkForDistance(int sensorPosition) {
             break;
     }
 
-    printf("2");
+    printf("2\n");
     // Send trig pulse to all sensors
     digitalWrite(TRIG, HIGH);
     // Pulse 20 microsec long
@@ -107,7 +107,7 @@ int checkForDistance(int sensorPosition) {
         delayMicroseconds(1);
     }
 
-    printf("3");
+    printf("3\n");
     // If we have an echo we calculate travelTime
     if (isSignalBack) {
         //Wait for echo end
