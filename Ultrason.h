@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 void initializeUS_sensor(void);
-int * getDistance(void);
+int * getDistance( );
 int checkForDistance(int sensorPosition);
 
 #endif /* Ultrason_h */

@@ -43,7 +43,7 @@ void initializeUS_sensor() {
 /*
     Get distance for all 4 sensors
 */
-int * getDistance() {
+int * getDistance( ) {
 
     // Distance variable for each ultrasonic sensors
     static int distance[4];
