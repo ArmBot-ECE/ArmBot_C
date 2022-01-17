@@ -1,12 +1,18 @@
+//
+//  servoMotorControl.c
+//  RaspberryPi
+//
+//  Created by Troyan Hugo on 04/01/2022.
+//  Copyright © 2022 Troyan Hugo. All rights reserved.
+//
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <wiringPi.h>
 //Include C files
 #include "servoMotorControl.c"
-#include "camera_V2.c"
 #include "DCMotor.c"
 #include "Ultrason.c"
-#include "Led.c"
 
 // Include prototype function
 void initialize_AllFunctions();
@@ -14,111 +20,66 @@ void initialize_AllFunctions();
 // Commande pour compiler :
 //gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt
 
-
-// A MODIFIER  : le delay lors du move sur la gauche ou la droite (l50-60)
-// le setServoMotor qui bloque assez longtemps sans bloquer le processus et qu'il fasse la capteur de la distance ? (l30 - 40)
 int main(int argc, char *argv[]){
     
     // Initialize all sensors and functions
     initialize_AllFunctions();
+
+    // Distance of 4 ultrasonic sensors
+    int *distanceSensors;
+
+    printf("------------------------------------------------\n");
+    printf("-                 Armbot Ready                 -\n");
+    printf("------------------------------------------------\n\n");
     
-    int leftDistance;
-    int rightDistance;
-    int centerDistance;
-    
-    while (1)
-    {
+    while (1) {
+        distanceSensors = getDistance();
 
-        //Start first move by checking best direction to go
+        if(*distanceSensors == 1000000 && *(distanceSensors+1) == 1000000 && *(distanceSensors+2) == 1000000 && *(distanceSensors+3) == 1000000) {
+            printf("No obstacle found\n\n");
+        } else {
+            if(*distanceSensors != 1000000) {
+                printf("Obstacle found by sensor 1, distance : %d\n", *distanceSensors);
+            }
+            if(*(distanceSensors+1) != 1000000) {
+                printf("Obstacle found by sensor 2, distance : %d\n", *(distanceSensors+1));
+            }
+            if(*(distanceSensors+2) != 1000000) {
+                printf("Obstacle found by sensor 3, distance : %d\n", *(distanceSensors+2));
+            }
+            if(*(distanceSensors+3) != 1000000) {
+                printf("Obstacle found by sensor 4, distance : %d\n", *(distanceSensors+3));
+            }
 
-/* ----------------------------------------------------
-*  -         Check left and right for direction       -
-*  ---------------------------------------------------- */
-
-        // Left check
-        setLeftAngle();
-        delay(1000);
-        leftDistance = getDistance();
-        delay(100);
-        
-        // Right check
-        setRightAngle();
-        delay(1000);
-        rightDistance = getDistance();
-        delay(100);
-        
-        // Back to center position
-        setCenterAngle();
-        delay(1000);
-        centerDistance = getDistance();
-        delay(100);
-
-        //----- Compare distance for direction -------
-        //Move forward if nothing blocks the way
-        if(centerDistance == 1000000){
-            moveForward();
         }
-        else if (leftDistance == rightDistance) {
-        // It can be right or left so let's say right because right is always right ;)
-            turnRight();
-            delay(1000);
-        }
-        else if (leftDistance > rightDistance) {
-            turnLeft();
-            delay(1000);
-        }
-        else if (leftDistance < rightDistance) {
-            turnRight();
-            delay(1000);
-        }
-        
-
-/* ----------------------------------------------------
-*  -     Move forward until it reaches an obstacle    -
-*  ---------------------------------------------------- */
-        
-        // Moving = green LED
-        LedGreen();
-        
-        // Start to check distance
-        centerDistance = getDistance();
-
-        // Move forward until obstacle
-        while(centerDistance > 30) {
-// il faudrait afficher la distance dans la console sans spam de milliers de print par seconde...
-            //printf("Distance: %dcm\n", dist);
-            moveForward();
-            centerDistance = getDistance();
-        }
-        // Stop motors
-        stopMotors();
-        // Stop = red light
-        LedRed();
-        // Take a picture
-        initializeCamera();   
-    // Back to beginning of loop 
+        //Sleep for 200ms
+        delay(200);
     }
 
-    printf("Exiting the loop.\nA problem happened...\n");
-    return 0;
+    //We shouldn't be here
+    return 1;
 }
 
 void initialize_AllFunctions(){
+    printf("------------------------------------------------\n");
+    printf("-  Starting initialize all peripheral devices  -\n");
+    printf("------------------------------------------------\n");
+
     // Setup de wiringPi
     wiringPiSetup();
 
-    // Setup camera
-    initializeCamera();
-
     // Setup DC motors
-    initializeDCMotors();
+//    initializeDCMotors();
     
     // Setup ultrasonic sensor
+    printf("* Initializing ultrasonic sensor...\n");
     initializeUS_sensor();
-    
+
     // Setup servo motor
+    printf("* Initializing servomotors...\n");
     initializeServoMotor();
-    
-    // Setup led
-    initialize_Led();
+
+    printf("------------------------------------------------\n");
+    printf("-             Initialize complete              -\n");
+    printf("------------------------------------------------\n\n\n");
 }

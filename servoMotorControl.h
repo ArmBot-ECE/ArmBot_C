@@ -2,8 +2,8 @@
 //  servoMotorControl.h
 //  RaspberryPi
 //
-//  Created by Boulon Marie on 09/11/2020.
-//  Copyright © 2020 Troyan Hugo. All rights reserved.
+//  Created by Troyan Hugo on 04/01/2022.
+//  Copyright © 2022 Troyan Hugo. All rights reserved.
 //
 
 #ifndef servoMotorControl_h
@@ -17,5 +17,7 @@ void setLeftAngle(void);
 void setRightAngle(void);
 void setCenterAngle(void);
 void setPulse(int angle);
+void incrementAngle(int* currentAngle);
+void decrementAngle(int* currentAngle);
 
 #endif /* servoMotorControl_h */
