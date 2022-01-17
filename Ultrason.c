@@ -126,5 +126,6 @@ int checkForDistance(int sensorPosition) {
         distance = 1000000;
     }
 
+    printf("Returning distance...\n");
     return distance;
 }
