@@ -20,98 +20,40 @@ void initialize_AllFunctions();
 // Commande pour compiler :
 //gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt
 
-
-// A MODIFIER  : le delay lors du move sur la gauche ou la droite (l50-60)
-// le setServoMotor qui bloque assez longtemps sans bloquer le processus et qu'il fasse la capteur de la distance ? (l30 - 40)
 int main(int argc, char *argv[]){
     
-    // Initialize all sensors and functions*
+    // Initialize all sensors and functions
     initialize_AllFunctions();
+
+    // Distance of 4 ultrasonic sensors
+    int *distanceSensors;
+
+    printf("------------------------------------------------\n");
+    printf("-                 Armbot Ready                 -\n");
+    printf("------------------------------------------------\n\n");
     
-    int leftDistance;
-    int rightDistance;
-    int centerDistance;
+    while (1) {
+        distance = getDistance();
 
-    int distance;
-    
-    while (1)
-    {
+        if(*distance[0] == 1000000 && *distance[1] == 1000000 && *distance[2] == 1000000 && *distance[3] == 1000000) {
+            printf("No obstacle found\n\n");
+        } else {
+            if(*distance[0] != 1000000) {
+                printf("Obstacle found by sensor 1, distance : %d\n", *distance[0]);
+            }
+            if(*distance[1] != 1000000) {
+                printf("Obstacle found by sensor 2, distance : %d\n", *distance[1]);
+            }
+            if(*distance[2] != 1000000) {
+                printf("Obstacle found by sensor 3, distance : %d\n", *distance[2]);
+            }
+            if(*distance[3] != 1000000) {
+                printf("Obstacle found by sensor 4, distance : %d\n", *distance[3]);
+            }
 
-//        //Start first move by checking best direction to go
-//
-///* ----------------------------------------------------
-//*  -         Check left and right for direction       -
-//*  ---------------------------------------------------- */
-//
-//        // Left check
-////        setLeftAngle();
-//        delay(1000);
-//        leftDistance = getDistance();
-//        delay(100);
-//
-//        // Right check
-////        setRightAngle();
-//        delay(1000);
-//        rightDistance = getDistance();
-//        delay(100);
-//
-//        // Back to center position
-////        setCenterAngle();
-//        delay(1000);
-//        centerDistance = getDistance();
-//        delay(100);
-//
-//        //----- Compare distance for direction -------
-//        //Move forward if nothing blocks the way
-//        if(centerDistance == 1000000){
-//            moveForward();
-//        }
-//        else if (leftDistance == rightDistance) {
-//        // It can be right or left so let's say right because right is always right ;)
-//            turnRight();
-//            delay(1000);
-//        }
-//        else if (leftDistance > rightDistance) {
-//            turnLeft();
-//            delay(1000);
-//        }
-//        else if (leftDistance < rightDistance) {
-//            turnRight();
-//            delay(1000);
-//        }
-//
-//
-///* ----------------------------------------------------
-//*  -     Move forward until it reaches an obstacle    -
-//*  ---------------------------------------------------- */
-//
-//        // Start to check distance
-//        centerDistance = getDistance();
-//
-//        // Move forward until obstacle
-//        while(centerDistance > 30) {
-//// il faudrait afficher la distance dans la console sans spam de milliers de print par seconde...
-//            //printf("Distance: %dcm\n", dist);
-//            moveForward();
-//            centerDistance = getDistance();
-//        }
-//        // Stop motors
-//        stopMotors();
-//
-//    // Back to beginning of loop
-//    }
-//
-//    printf("Exiting the loop.\nA problem happened...\n");
-
-    distance = getDistance();
-    if(distance == 1000000) {
-        printf("No obstacle found\n\n");
-    } else {
-        printf("Distance : %d\n\n", distance);
-    }
-    //Sleep for 500ms
-    delay(5000);
-
+        }
+        //Sleep for 200ms
+        delay(200);
     }
 
     //We shouldn't be here
@@ -137,7 +79,6 @@ void initialize_AllFunctions(){
     printf("* Initializing servomotors...\n");
     initializeServoMotor();
 
-    // TODO handle errors during initialization
     printf("------------------------------------------------\n");
     printf("-             Initialize complete              -\n");
     printf("------------------------------------------------\n\n\n");
