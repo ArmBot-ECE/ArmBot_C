@@ -66,11 +66,12 @@ int * getDistance() {
 */
 int checkForDistance(int sensorPosition) {
 
+    printf("1");
     char isSignalBack = 0;
     int sensorPinEcho;
     int distance;
 
-    printf("1");
+
     switch (sensorPosition) {
         case 1:
             sensorPinEcho = ECHO1;
