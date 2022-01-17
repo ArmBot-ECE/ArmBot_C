@@ -111,9 +111,10 @@ int checkForDistance(int sensorPosition) {
         delayMicroseconds(1);
     }
 
-    printf("3\n");
+    printf("isSignalBack : %d\n", isSignalBack);
     // If we have an echo we calculate travelTime
     if (isSignalBack) {
+        printf("The fuck\n");
         //Wait for echo end
         long startTime = micros();
         while(digitalRead(sensorPinEcho) == HIGH);
@@ -123,6 +124,7 @@ int checkForDistance(int sensorPosition) {
         distance = travelTime / 58;
     }
     else {
+        printf("The fuck2\n");
         distance = 1000000;
     }
 
