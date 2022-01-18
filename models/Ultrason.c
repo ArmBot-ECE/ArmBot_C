@@ -43,7 +43,7 @@ void initializeUS_sensor() {
 /*
     Get distance for all 4 sensors
 */
-int *getDistance() {
+int *getAllDistances() {
 
     // Distance variable for each ultrasonic sensors
     static int distance[4];
@@ -52,10 +52,10 @@ int *getDistance() {
     printf("-    Getting distance   -\n");
     printf("-------------------------\n");
 
-    distance[0] = checkForDistance(1);
-    distance[1] = checkForDistance(2);
-    distance[2] = checkForDistance(3);
-    distance[3] = checkForDistance(4);
+    distance[0] = getDistance(1);
+    distance[1] = getDistance(2);
+    distance[2] = getDistance(3);
+    distance[3] = getDistance(4);
 
     return distance;
 }
@@ -64,7 +64,7 @@ int *getDistance() {
 /*
     Private function to get distance for each ultrasonic sensor
 */
-int checkForDistance(int sensorPosition) {
+int getDistance(int sensorPosition) {
 
     char isSignalBack = 0;
     int sensorPinEcho;

@@ -22,3 +22,6 @@ void initializeBluetooth() {
 
 }
 
+void getCommand() {
+    // TODO Get command from bluetooth
+}

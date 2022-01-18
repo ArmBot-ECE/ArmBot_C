@@ -10,18 +10,19 @@
 #include <stdlib.h>
 #include <wiringPi.h>
 //Include C files
-#include "servoMotorControl.c"
-#include "DCMotor.c"
-#include "Ultrason.c"
+#include "models/servoMotorControl.c"
+#include "models/Ultrason.c"
+#include "models/bluetooth.c"
 
 // Include prototype function
 void initialize_AllFunctions();
 void checkDistance();
-void moveServomotor(int angle, int servomotorPosition);
-void stopServomotor(int servomotorPosition);
 
 // Command to compile with gcc:
 // gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt
+
+// Global variables
+//int *currentAngle1, *currentAngle2, *currentAngle3;
 
 
 
@@ -30,21 +31,25 @@ void stopServomotor(int servomotorPosition);
 // --------------------------------------
 
 int main(int argc, char *argv[]){
-    
+
     // Initialize all sensors and functions
     initialize_AllFunctions();
 
     //Current angle of each servomotors
-    int *currentAngle1;
-    int *currentAngle2;
-    int *currentAngle3;
+    int *currentAngle1, *currentAngle2, *currentAngle3;
+    // Distance of 4 ultrasonic sensors
+    int *distanceSensors;
+
 
     while (1) {
+        // TODO Retrieve action sent by the smartphone
+        getCommand();
         // Check for obstacles with ultrasonic sensors
         checkDistance();
 
         // TODO Action moveServomotor by 5° for example and check for distance again
-
+        // Do action on motors
+        incrementAngle
         // Sleep for 200ms
         delay(200);
     }
@@ -56,7 +61,9 @@ int main(int argc, char *argv[]){
 
 
 
-
+/*
+        CONTROLLER METHODS
+*/
 
 void initialize_AllFunctions(){
     printf("------------------------------------------------\n");
@@ -86,11 +93,10 @@ void initialize_AllFunctions(){
     Check distance of all 4 ultrasonic sensors to make
     sure there is no obstacle
 */
-void checkDistance() {
-    // Distance of 4 ultrasonic sensors
-    int *distanceSensors;
-
-    distanceSensors = getDistance();
+void checkDistance(int *distanceSensors) {
+    // Fetch all distances from ultrasonic sensors
+    // return an array of 4 integer
+    distanceSensors = getAllDistances();
 
     // TODO Implement stopMotor if distance is < 3cm
     if(*distanceSensors == 1000000 && *(distanceSensors+1) == 1000000 && *(distanceSensors+2) == 1000000 && *(distanceSensors+3) == 1000000) {
@@ -111,21 +117,3 @@ void checkDistance() {
     }
 }
 
-/*
-    Rotate specific servomotor with an angle between 0° and 180°
-*/
-void moveServomotor(int angle, int servomotorPosition) {
-    // Get order from smartphone
-
-    // setPulse(int angle, int servomotorPosition);
-    // incrementAngle(int *currentAngle);
-    // decrementAngle(int *currentAngle);
-}
-
-/*
-    Stop movement of specific servomotor
-*/
-void stopServomotor(int servomotorPosition) {
-    // Cancel order to move received from the smartphone
-    // Stop servo if moving
-}

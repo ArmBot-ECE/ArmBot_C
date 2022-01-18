@@ -13,7 +13,7 @@
 
 int setPulse(int angle, int servomotorPosition)
 void initializeServoMotor(void);
-void incrementAngle(int *currentAngle);
-void decrementAngle(int *currentAngle);
+void incrementAngle(int *currentAngle, int servomotorPosition);
+void decrementAngle(int *currentAngle, int servomotorPosition);
 
 #endif /* servoMotorControl_h */
