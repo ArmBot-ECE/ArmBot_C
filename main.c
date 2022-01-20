@@ -20,7 +20,7 @@
 void checkDistance();*/
 
 // Command to compile with gcc:
-// gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt
+// gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt -lbluetooth
 
 // Global variables
 //int *currentAngle1, *currentAngle2, *currentAngle3;
@@ -97,7 +97,7 @@ void initialize_AllFunctions(){
     Check distance of all 4 ultrasonic sensors to make
     sure there is no obstacle
 */
-void checkDistance(int *distanceSensors) {
+/*void checkDistance(int *distanceSensors) {
     // Fetch all distances from ultrasonic sensors
     // return an array of 4 integer
     distanceSensors = getAllDistances();
@@ -119,5 +119,5 @@ void checkDistance(int *distanceSensors) {
             printf("Obstacle found by sensor 4, distance : %d\n", *(distanceSensors+3));
         }
     }
-}
+}*/
 
