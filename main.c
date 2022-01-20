@@ -40,6 +40,7 @@ int main(int argc, char *argv[]){
     // Distance of 4 ultrasonic sensors
     int *distanceSensors;
 
+    bool success = initializeBluetooth();
 
     while (1) {
         // TODO Retrieve action sent by the smartphone
