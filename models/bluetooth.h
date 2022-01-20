@@ -10,6 +10,21 @@
 #define bluetooth_h
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <wiringPi.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/socket.h>
+#include <bluetooth/bluetooth.h>
+#include <bluetooth/bluetooth.h>
+#include <bluetooth/sdp.h>
+#include <bluetooth/sco.h>
+#include <bluetooth/sdp_lib.h>
+#include <bluetooth/rfcomm.h>
+#include <bluetooth/l2cap.h>
 
 _Bool initializeBluetooth(void);
 

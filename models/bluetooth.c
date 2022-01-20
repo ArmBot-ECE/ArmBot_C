@@ -12,7 +12,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "bluetooth.h"
 #include <wiringPi.h>
 #include <errno.h>
 #include <fcntl.h>
