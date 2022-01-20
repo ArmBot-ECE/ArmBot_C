@@ -33,7 +33,6 @@
     Initialize bluetooth connection
 */
 bool initializeBluetooth() {
-	printf("In Bluetooth method");
 	char buf[1024] = { 0 };
     int s, bytes_read = -1;
     int client = init_server();
@@ -64,7 +63,6 @@ void getCommand() {
 
 
 sdp_session_t *register_service(uint8_t rfcomm_channel) {
-	printf("In register_service method");
 	uint32_t svc_uuid_int[] = { 0x38D46A42, 0xBDA14A6E, 0x9CD4CFC4, 0xB8056203 };
 	const char *service_name = "ArmBot Bluetooth server";
 	const char *svc_dsc = "An ArmBot server that interfaces with the ArmBot Android app";
@@ -97,22 +95,26 @@ sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	sdp_uuid16_create(&svc_class_uuid, SERIAL_PORT_SVCLASS_ID);
 	svc_class_list = sdp_list_append(0, &svc_class_uuid);
 	sdp_set_service_classes(&record, svc_class_list);
+	printf("\nICI\n");
 
 	// set the Bluetooth profile information
 	sdp_uuid16_create(&profile.uuid, SERIAL_PORT_PROFILE_ID);
 	profile.version = 0x0100;
 	profile_list = sdp_list_append(0, &profile);
 	sdp_set_profile_descs(&record, profile_list);
+	printf("\nICI 1\n");
 
 	// make the service record publicly browsable
 	sdp_uuid16_create(&root_uuid, PUBLIC_BROWSE_GROUP);
 	root_list = sdp_list_append(0, &root_uuid);
 	sdp_set_browse_groups(&record, root_list);
+	printf("\nICI 2\n");
 
 	// set l2cap information
 	sdp_uuid16_create(&l2cap_uuid, L2CAP_UUID);
 	l2cap_list = sdp_list_append(0, &l2cap_uuid);
 	proto_list = sdp_list_append(0, l2cap_list);
+	printf("\nICI 3\n");
 
 	// register the RFCOMM channel for RFCOMM sockets
 	sdp_uuid16_create(&rfcomm_uuid, RFCOMM_UUID);
@@ -120,17 +122,21 @@ sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	rfcomm_list = sdp_list_append(0, &rfcomm_uuid);
 	sdp_list_append(rfcomm_list, channel);
 	sdp_list_append(proto_list, rfcomm_list);
+	printf("\nICI 4\n");
 
 	access_proto_list = sdp_list_append(0, proto_list);
 	sdp_set_access_protos(&record, access_proto_list);
+	printf("\nICI 5\n");
 
 	// set the name, provider, and description
 	sdp_set_info_attr(&record, service_name, service_prov, svc_dsc);
+	printf("\nICI 6\n");
 
 	// connect to the local SDP server, register the service record,
 	// and disconnect
 	session = sdp_connect(BDADDR_ANY, BDADDR_LOCAL, SDP_RETRY_IF_BUSY);
 	sdp_record_register(session, &record, 0);
+	printf("\nICI 7\n");
 
 	// cleanup
 	sdp_data_free(channel);
@@ -140,12 +146,12 @@ sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	sdp_list_free(access_proto_list, 0);
 	sdp_list_free(svc_class_list, 0);
 	sdp_list_free(profile_list, 0);
+	printf("\nICI 8\n");
 
 	return session;
 }
 
 int init_server() {
-	printf("In init_server method");
 	int port = 3, result, sock, client, bytes_read, bytes_sent;
 	struct sockaddr_rc loc_addr = { 0 }, rem_addr = { 0 };
 	char buffer[1024] = { 0 };
@@ -159,6 +165,7 @@ int init_server() {
 	// register service
 	sdp_session_t *session = register_service(port);
 
+	printf("\nICI 9\n");
 	// allocate socket
 	sock = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
 	printf("socket() returned %d\n", sock);
