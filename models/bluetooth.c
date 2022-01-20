@@ -33,7 +33,11 @@
     Initialize bluetooth connection
 */
 bool initializeBluetooth() {
+	char buf[1024] = { 0 };
+    int s, bytes_read = -1;
     int client = init_server();
+	int port = 3;
+	sdp_session_t* session = register_service(port);
 
     do {
         // read data from the client
