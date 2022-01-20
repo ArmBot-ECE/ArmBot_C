@@ -51,7 +51,7 @@ bool initializeBluetooth() {
     printf("Closing connection.\n");
     close(client);
     close(s);
-    sdp_close( session );
+    //sdp_close( session );
 
     return true;
 }
@@ -81,6 +81,7 @@ sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	sdp_profile_desc_t profile;
 	sdp_record_t record = { 0 };
 	sdp_session_t *session = 0;
+	
 
 	// set the general service ID
 	sdp_uuid128_create(&svc_uuid, &svc_uuid_int);
