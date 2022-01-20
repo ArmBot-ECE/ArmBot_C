@@ -33,6 +33,7 @@
     Initialize bluetooth connection
 */
 bool initializeBluetooth() {
+	printf("In Bluetooth method");
 	char buf[1024] = { 0 };
     int s, bytes_read = -1;
     int client = init_server();
@@ -63,6 +64,7 @@ void getCommand() {
 
 
 sdp_session_t *register_service(uint8_t rfcomm_channel) {
+	printf("In register_service method");
 	uint32_t svc_uuid_int[] = { 0x38D46A42, 0xBDA14A6E, 0x9CD4CFC4, 0xB8056203 };
 	const char *service_name = "ArmBot Bluetooth server";
 	const char *svc_dsc = "An ArmBot server that interfaces with the ArmBot Android app";
@@ -143,6 +145,7 @@ sdp_session_t *register_service(uint8_t rfcomm_channel) {
 }
 
 int init_server() {
+	printf("In init_server method");
 	int port = 3, result, sock, client, bytes_read, bytes_sent;
 	struct sockaddr_rc loc_addr = { 0 }, rem_addr = { 0 };
 	char buffer[1024] = { 0 };

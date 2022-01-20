@@ -41,7 +41,9 @@ int main(int argc, char *argv[]){
     // Distance of 4 ultrasonic sensors
     int *distanceSensors;*/
 
+    printf("In main");
     bool success = initializeBluetooth();
+    printf("Out of bluetooth method");
 
     /*while (1) {
         // TODO Security
