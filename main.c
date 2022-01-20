@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>  
 #include <wiringPi.h>
 //Include C files
 /*#include "models/servoMotorControl.c"
