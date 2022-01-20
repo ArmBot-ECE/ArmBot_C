@@ -11,10 +11,6 @@
 
 #include <stdio.h>
 
-bool initializeBluetooth(void);
-sdp_session_t *register_service(uint8_t rfcomm_channel);
-int init_server();
-char *read_server(int client);
-void write_server(int client, char *message);
+_Bool initializeBluetooth(void);
 
 #endif /* bluetooth_h */
