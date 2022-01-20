@@ -10,13 +10,13 @@
 #include <stdlib.h>
 #include <wiringPi.h>
 //Include C files
-#include "models/servoMotorControl.c"
-#include "models/Ultrason.c"
+/*#include "models/servoMotorControl.c"
+#include "models/Ultrason.c"*/
 #include "models/bluetooth.c"
 
 // Include prototype function
-void initialize_AllFunctions();
-void checkDistance();
+/*void initialize_AllFunctions();
+void checkDistance();*/
 
 // Command to compile with gcc:
 // gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt
@@ -33,16 +33,18 @@ void checkDistance();
 int main(int argc, char *argv[]){
 
     // Initialize all sensors and functions
-    initialize_AllFunctions();
+    /*initialize_AllFunctions();
 
     //Current angle of each servomotors
     int *currentAngle1, *currentAngle2, *currentAngle3;
     // Distance of 4 ultrasonic sensors
-    int *distanceSensors;
+    int *distanceSensors;*/
 
     bool success = initializeBluetooth();
 
-    while (1) {
+    /*while (1) {
+        // TODO Security
+
         // TODO Retrieve action sent by the smartphone
         getCommand();
         // Check for obstacles with ultrasonic sensors
@@ -53,7 +55,7 @@ int main(int argc, char *argv[]){
         incrementAngle
         // Sleep for 200ms
         delay(200);
-    }
+    }*/
 
     // We shouldn't be here
     return 1;
