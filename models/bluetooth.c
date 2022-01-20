@@ -63,7 +63,7 @@ void getCommand() {
 
 
 
-sdp_session_t* register_service(int rfcomm_channel) {
+sdp_session_t* register_service(uint8_t rfcomm_channel) {
 	uint32_t svc_uuid_int[] = { 0x38D46A42, 0xBDA14A6E, 0x9CD4CFC4, 0xB8056203 };
 	const char *service_name = "ArmBot Bluetooth server";
 	const char *svc_dsc = "An ArmBot server that interfaces with the ArmBot Android app";
@@ -81,7 +81,7 @@ sdp_session_t* register_service(int rfcomm_channel) {
 	sdp_data_t  *channel = 0;
 	sdp_profile_desc_t profile;
 	sdp_record_t record = { 0 };
-	sdp_session_t *session = 0;
+	sdp_session_t* session = 0;
 
 	// set the general service ID
 	sdp_uuid128_create(&svc_uuid, &svc_uuid_int);
@@ -154,7 +154,7 @@ int init_server() {
 	loc_addr.rc_channel = (uint8_t) port;
 
 	// register service
-	sdp_session_t *session = register_service(port);
+	sdp_session_t *session = register_service((uint8_t)port);
 
 	// allocate socket
 	sock = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
