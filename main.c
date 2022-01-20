@@ -74,7 +74,7 @@ void initialize_AllFunctions(){
     printf("-  Starting initialize all peripheral devices  -\n");
     printf("------------------------------------------------\n");
 
-    // Setup wiringPi
+    /*// Setup wiringPi
     wiringPiSetup();
 
     // Setup DC motors
@@ -86,7 +86,7 @@ void initialize_AllFunctions(){
 
     // Setup servomotor
     printf("* Initializing servomotors...\n");
-    initializeServoMotor();
+    initializeServoMotor();*/
 
     printf("------------------------------------------------\n");
     printf("-             Initialize complete              -\n");
