@@ -11,9 +11,9 @@
 
 #include <stdio.h>
 
-int setPulse(int angle, int servomotorPosition)
+int setPulseServo(int angle, int servomotorPosition)
 void initializeServoMotor(void);
-void incrementAngle(int *currentAngle, int servomotorPosition);
-void decrementAngle(int *currentAngle, int servomotorPosition);
+void incrementAngleServo(int *currentAngle, int servomotorPosition);
+void decrementAngleServo(int *currentAngle, int servomotorPosition);
 
 #endif /* servoMotorControl_h */

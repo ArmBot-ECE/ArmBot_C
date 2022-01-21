@@ -64,7 +64,7 @@ void initializeServoMotor(){
 // TODO
 //Attention avec cette fonction, le signal recu doit être périodique
 // S'il recoit 5000 1 par seconde il va très vite atteindre sa valeur max
-void incrementAngle(int *currentAngle, int servomotorPosition) {
+void incrementAngleServo(int *currentAngle, int servomotorPosition) {
     if (*currentAngle < 180 && *currentAngle >= 0) {
         // TODO Increment by 1° ?
         *currentAngle++;
@@ -73,7 +73,7 @@ void incrementAngle(int *currentAngle, int servomotorPosition) {
     }
 }
 
-void decrementAngle(int *currentAngle, int servomotorPosition) {
+void decrementAngleServo(int *currentAngle, int servomotorPosition) {
     if (*currentAngle > 0 && *currentAngle <= 180) {
         // TODO Decrement by 1° ?
         *currentAngle--;
@@ -86,7 +86,7 @@ void decrementAngle(int *currentAngle, int servomotorPosition) {
     Set PWM command signal for servomotor with specific angle
     Between 0° and 180°
 */
-int setPulse(int angle, int servomotorPosition) {
+int setPulseServo(int angle, int servomotorPosition) {
     int servomotorPin;
 
     //Setup which servomotor to control
