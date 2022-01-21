@@ -37,7 +37,7 @@ void incrementAngleStepper(int *currentAngle, int steppermotorPosition) {
 
 void incrementAngleTest() {
     digitalWrite(XMOVE,1);
-    digitalWrite(XDIR,1);
+    digitalWrite(XDIR,0);
     printf("Increment Angle\n");
 }
 
