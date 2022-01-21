@@ -44,13 +44,26 @@ int main(int argc, char *argv[]){
         // getCommand();
         // Check for obstacles with ultrasonic sensors
 //        checkDistance();
+
+        printf("* Moving 1st steppermotor...\n");
         for(int i=0; i<200; i++) {
-            incrementAngleTest();
+            incrementAngleStepper(1);
             delay(10);
         }
 
         for(int i=0; i<200; i++) {
-            decrementAngleTest();
+            decrementAngleStepper(1);
+            delay(10);
+        }
+
+        printf("* Moving 2nd steppermotor...\n");
+        for(int i=0; i<200; i++) {
+            incrementAngleStepper(2);
+            delay(10);
+        }
+
+        for(int i=0; i<200; i++) {
+            decrementAngleStepper(2);
             delay(10);
         }
 

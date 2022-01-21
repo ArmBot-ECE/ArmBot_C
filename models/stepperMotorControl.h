@@ -14,7 +14,7 @@
 void initializeStepperMotor();
 void decrementAngleStepper(int *currentAngle, int steppermotorPosition);
 void incrementAngleStepper(int *currentAngle, int steppermotorPosition);
-void incrementAngleTest();
-void decrementAngleTest();
+int incrementAngleStepper(int stepperMotorPosition);
+int decrementAngleStepper(int stepperMotorPosition);
 
 #endif /* stepperMotorControl_h */
