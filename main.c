@@ -44,6 +44,7 @@ int main(int argc, char *argv[]){
         // getCommand();
         // Check for obstacles with ultrasonic sensors
         checkDistance();
+        incrementAngleTest();
 
         // TODO Action moveServomotor by 5° for example and check for distance again
         // Do action on motors
