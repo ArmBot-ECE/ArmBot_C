@@ -9,10 +9,8 @@
 #include "stepperMotorControl.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <errno.h>
 #include <wiringPi.h>
-#include <math.h>
 
 #define XMOVE 8 // GPIO 2 - pin 3
 #define XDIR 9 // GPIO 3 - pin 5
