@@ -69,7 +69,7 @@ void incrementAngleServo(int *currentAngle, int servomotorPosition) {
         // TODO Increment by 1° ?
         *currentAngle++;
         // TODO Handle errors ?
-        setPulse(*currentAngle, servomotorPosition);
+        setPulseServo(*currentAngle, servomotorPosition);
     }
 }
 
