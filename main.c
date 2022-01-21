@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <wiringPi.h>
 //Include C files
 #include "models/servoMotorControl.c"
@@ -21,7 +22,10 @@ void initialize_AllFunctions();
 void checkDistance();
 
 // Command to compile with gcc:
-// gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt
+// gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt -lbluetooth
+
+// Global variables
+//int *currentAngle1, *currentAngle2, *currentAngle3;
 
 
 
@@ -39,8 +43,11 @@ int main(int argc, char *argv[]){
     // Distance of 4 ultrasonic sensors
     int *distanceSensors;
 
+    bool success = initializeBluetooth();
 
     while (1) {
+        // TODO Security
+
         // TODO Retrieve action sent by the smartphone
         // getCommand();
         // Check for obstacles with ultrasonic sensors
