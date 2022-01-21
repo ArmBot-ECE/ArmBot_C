@@ -19,6 +19,7 @@ void initializeStepperMotor(){
     // I/O
     pinMode(XMOVE, OUTPUT);
     pinMode(XDIR, OUTPUT);
+    printf("hello\n");
 }
 
 // TODO
