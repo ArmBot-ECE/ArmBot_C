@@ -78,7 +78,7 @@ void decrementAngleServo(int *currentAngle, int servomotorPosition) {
         // TODO Decrement by 1° ?
         *currentAngle--;
         // TODO Handle errors ?
-        setPulse(*currentAngle, servomotorPosition);
+        setPulse(currentAngle, servomotorPosition);
     }
 }
 
@@ -86,7 +86,7 @@ void decrementAngleServo(int *currentAngle, int servomotorPosition) {
     Set PWM command signal for servomotor with specific angle
     Between 0° and 180°
 */
-int setPulseServo(int angle, int servomotorPosition) {
+int setPulseServo(int *angle, int servomotorPosition) {
     int servomotorPin;
 
     //Setup which servomotor to control
