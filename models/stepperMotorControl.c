@@ -26,6 +26,7 @@ void initializeStepperMotor(){
 }
 
 int setDirectionStepper(int stepperMotorPosition, int direction) {
+    int stepperMotorPinDirection;
     if(direction != 0 && direction != 1) {
         printf("Wrong argument for direction !\nClockwise = 1\nAnti-clockwise = 0\n");
         return 1;
