@@ -6,7 +6,7 @@
 //  Copyright © 2022 Troyan Hugo. All rights reserved.
 //
 
-#include "servoMotorControl.h"
+#include "stepperMotorControl.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
