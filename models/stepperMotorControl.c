@@ -45,8 +45,8 @@ void incrementAngleTest() {
 //    printf("Test XMOVE 1 XDIR 0\n");
 //    digitalWrite(XMOVE,1);
 //    digitalWrite(XDIR,0);
-//    printf("Test XMOVE 0 XDIR 0\n");
-//    digitalWrite(XMOVE,0);
+    printf("Test XMOVE 0 XDIR 0\n");
+    digitalWrite(XMOVE,0);
 //    digitalWrite(XDIR,0);
 
 }
