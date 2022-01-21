@@ -14,41 +14,13 @@
 #include <wiringPi.h>
 #include <math.h>
 
-#define SERVO1 23 // GPIO 13 - pin 33
-#define SERVO2 24 // GPIO 19 - pin 35
-#define SERVO3 1 // GPIO 18 - pin 12
+#define XMOVE 8 // GPIO 2 - pin 3
+#define XDIR 9 // GPIO 3 - pin 5
 
-// TODO A traduire
-// ---------------------------------------------------
-// -                  ANALOGIQUE                     -
-// ---------------------------------------------------
-
-// Le servo moteur tourne avec un angle de 0 à 180° en fonction du signal PWM qu'on lui injecte.
-// Le signal est carré de période 20 ms (50Hz)
-// Un angle de 0 ° correspond a 1ms à l'état haut
-// Un angle de 90° correspond a 1.5ms à l'état haut
-// Un angle de 180° correspond a 2ms à l'état haut
-
-// ---------------------------------------------------
-// -                  NUMERIQUE                      -
-// ---------------------------------------------------
-// Le signal est carré de période 3.33 ms (300Hz)
-// Un angle de 0 ° correspond a 500µs à l'état haut
-// Un angle de 90° correspond a 1500µs à l'état haut
-// Un angle de 180° correspond a 2500µs à l'état haut
-
-/*
-    Initialize all pins for servomotors
-    Frequency = 19.2MHz / (PMWC * PWMR)
-    PWMR
-    PWMC is clock divider
-
-    We want 300 Hz : 300 = 19.2MHz / (PWMC * PWMR)
-    PWMC = 64
-    PWMR = 1000
-*/
 void initializeStepperMotor(){
-
+    // I/O
+    pinMode(XMOVE, OUTPUT);
+    pinMode(XDIR, OUTPUT);
 }
 
 // TODO
@@ -61,6 +33,11 @@ void incrementAngle(int *currentAngle, int steppermotorPosition) {
 //        // TODO Handle errors ?
 //        setPulse(*currentAngle, steppermotorPosition);
     }
+}
+
+void incrementAngleTest() {
+    digitalWrite(XMOVE,1);
+    digitalWrite(XDIR,1);
 }
 
 void decrementAngle(int *currentAngle, int steppermotorPosition) {

@@ -13,6 +13,7 @@
 #include "models/servoMotorControl.c"
 #include "models/Ultrason.c"
 #include "models/bluetooth.c"
+#include "models/stepperMotorControl.c"
 
 // Include prototype function
 void initialize_AllFunctions();
@@ -20,9 +21,6 @@ void checkDistance();
 
 // Command to compile with gcc:
 // gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt
-
-// Global variables
-//int *currentAngle1, *currentAngle2, *currentAngle3;
 
 
 
@@ -43,13 +41,13 @@ int main(int argc, char *argv[]){
 
     while (1) {
         // TODO Retrieve action sent by the smartphone
-        getCommand();
+        // getCommand();
         // Check for obstacles with ultrasonic sensors
         checkDistance();
 
         // TODO Action moveServomotor by 5° for example and check for distance again
         // Do action on motors
-        incrementAngle
+        //incrementAngle
         // Sleep for 200ms
         delay(200);
     }
@@ -73,14 +71,15 @@ void initialize_AllFunctions(){
     // Setup wiringPi
     wiringPiSetup();
 
-    // Setup DC motors
-//    initializeDCMotors();
-    
-    // Setup ultrasonic sensor
-    printf("* Initializing ultrasonic sensor...\n");
+    // Setup steppermotors
+    printf("* Initializing steppermotors...\n");
+    initializeStepperMotor();
+
+    // Setup ultrasonic sensors
+    printf("* Initializing ultrasonic sensors...\n");
     initializeUS_sensor();
 
-    // Setup servomotor
+    // Setup servomotors
     printf("* Initializing servomotors...\n");
     initializeServoMotor();
 
