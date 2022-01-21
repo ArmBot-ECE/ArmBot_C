@@ -46,13 +46,14 @@ int main(int argc, char *argv[]){
         // Check for obstacles with ultrasonic sensors
 //        checkDistance();
 
+        printf("* Moving forward...\n");
         moveForwardButton();
 
         // TODO Action moveServomotor by 5° for example and check for distance again
         // Do action on motors
         //incrementAngle
         // Sleep for 200ms
-        delay(10);
+        delay(1000);
     }
 
     // We shouldn't be here
