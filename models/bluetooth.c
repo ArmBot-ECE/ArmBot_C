@@ -33,7 +33,42 @@
     Initialize bluetooth connection
 */
 bool initializeBluetooth() {
-	char buf[1024] = { 0 };
+	struct sockaddr_rc loc_addr = { 0 }, rem_addr = { 0 };
+    char buf[1024] = { 0 };
+    int s, client, bytes_read;
+    socklen_t opt = sizeof(rem_addr);
+
+    // allocate socket
+    s = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
+
+    // bind socket to port 1 of the first available 
+    // local bluetooth adapter
+    loc_addr.rc_family = AF_BLUETOOTH;
+    loc_addr.rc_bdaddr = *BDADDR_ANY;
+    loc_addr.rc_channel = (uint8_t) 1;
+    bind(s, (struct sockaddr *)&loc_addr, sizeof(loc_addr));
+
+    // put socket into listening mode
+    listen(s, 1);
+
+    // accept one connection
+    client = accept(s, (struct sockaddr *)&rem_addr, &opt);
+
+    ba2str( &rem_addr.rc_bdaddr, buf );
+    fprintf(stderr, "accepted connection from %s\n", buf);
+    memset(buf, 0, sizeof(buf));
+
+    // read data from the client
+    bytes_read = read(client, buf, sizeof(buf));
+    if( bytes_read > 0 ) {
+        printf("received [%s]\n", buf);
+    }
+
+    // close connection
+    close(client);
+    close(s);
+
+	/*char buf[1024] = { 0 };
     int s, bytes_read = -1;
     int client = init_server();
 	int port = 3;
@@ -51,7 +86,7 @@ bool initializeBluetooth() {
     printf("Closing connection.\n");
     close(client);
     close(s);
-    //sdp_close( session );
+    //sdp_close( session );*/
 
     return true;
 }
