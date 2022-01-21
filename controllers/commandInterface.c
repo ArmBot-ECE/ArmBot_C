@@ -22,9 +22,11 @@ void moveForwardButton() {
     setDirectionStepper(2, 0);
     for(int i=0; i<50; i++) {
         rotateStepper(1);
+        delay(1);
         rotateStepper(2);
+        delay(1);
         rotateStepper(2);
-        delay(100);
+        delay(1);
     }
 
 }

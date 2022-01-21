@@ -46,31 +46,31 @@ int main(int argc, char *argv[]){
         // Check for obstacles with ultrasonic sensors
 //        checkDistance();
 
-        printf("* Moving 1st steppermotor...\n");
-        setDirectionStepper(1, 1);
-        for(int i=0; i<200; i++) {
-            rotateStepper(1);
-            delay(10);
-        }
-
-        setDirectionStepper(1, 0);
-        for(int i=0; i<200; i++) {
-            rotateStepper(1);
-            delay(10);
-        }
-
-        printf("* Moving 2nd steppermotor...\n");
-        setDirectionStepper(2, 1);
-        for(int i=0; i<200; i++) {
-            rotateStepper(2);
-            delay(10);
-        }
-
-        setDirectionStepper(2, 0);
-        for(int i=0; i<200; i++) {
-            rotateStepper(2);
-            delay(10);
-        }
+//        printf("* Moving 1st steppermotor...\n");
+//        setDirectionStepper(1, 1);
+//        for(int i=0; i<200; i++) {
+//            rotateStepper(1);
+//            delay(10);
+//        }
+//
+//        setDirectionStepper(1, 0);
+//        for(int i=0; i<200; i++) {
+//            rotateStepper(1);
+//            delay(10);
+//        }
+//
+//        printf("* Moving 2nd steppermotor...\n");
+//        setDirectionStepper(2, 1);
+//        for(int i=0; i<200; i++) {
+//            rotateStepper(2);
+//            delay(10);
+//        }
+//
+//        setDirectionStepper(2, 0);
+//        for(int i=0; i<200; i++) {
+//            rotateStepper(2);
+//            delay(10);
+//        }
 
         printf("* Moving forward..\n");
         moveForwardButton();
@@ -80,7 +80,7 @@ int main(int argc, char *argv[]){
         // Do action on motors
         //incrementAngle
         // Sleep for 200ms
-        delay(1000);
+        delay(500);
     }
 
     // We shouldn't be here
