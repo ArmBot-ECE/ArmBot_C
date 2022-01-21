@@ -32,6 +32,7 @@ void incrementAngleStepper(int *currentAngle, int steppermotorPosition) {
 //        *currentAngle++;
 //        // TODO Handle errors ?
 //        setPulse(*currentAngle, steppermotorPosition);
+        printf("Hello");
     }
 }
 
@@ -46,5 +47,6 @@ void decrementAngleStepper(int *currentAngle, int steppermotorPosition) {
 //        *currentAngle--;
 //        // TODO Handle errors ?
 //        setPulse(*currentAngle, steppermotorPosition);
+        printf("Hello");
     }
 }
