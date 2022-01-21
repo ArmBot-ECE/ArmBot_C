@@ -65,7 +65,7 @@ int main(int argc, char *argv[]){
             delay(10);
         }
 
-        setDirectionStepper(2, 1);
+        setDirectionStepper(2, 0);
         for(int i=0; i<200; i++) {
             rotateStepper(2);
             delay(10);
