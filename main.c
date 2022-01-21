@@ -43,7 +43,7 @@ int main(int argc, char *argv[]){
         // TODO Retrieve action sent by the smartphone
         // getCommand();
         // Check for obstacles with ultrasonic sensors
-        checkDistance();
+//        checkDistance();
         incrementAngleTest();
 
         // TODO Action moveServomotor by 5° for example and check for distance again
