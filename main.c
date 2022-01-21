@@ -8,12 +8,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>  
+#include <stdbool.h>
 #include <wiringPi.h>
 //Include C files
 #include "models/servoMotorControl.c"
 #include "models/Ultrason.c"
 #include "models/bluetooth.c"
+#include "models/stepperMotorControl.c"
+#include "controllers/commandInterface.c"
 
 // Include prototype function
 void initialize_AllFunctions();
@@ -23,7 +25,7 @@ void checkDistance();
 // gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt -lbluetooth
 
 // Global variables
-int *currentAngle1, *currentAngle2, *currentAngle3;
+//int *currentAngle1, *currentAngle2, *currentAngle3;
 
 
 
@@ -47,15 +49,45 @@ int main(int argc, char *argv[]){
         // TODO Security
 
         // TODO Retrieve action sent by the smartphone
-        getCommand();
+        // getCommand();
         // Check for obstacles with ultrasonic sensors
-        checkDistance();
+//        checkDistance();
+
+//        printf("* Moving 1st steppermotor...\n");
+//        setDirectionStepper(1, 1);
+//        for(int i=0; i<200; i++) {
+//            rotateStepper(1);
+//            delay(10);
+//        }
+//
+//        setDirectionStepper(1, 0);
+//        for(int i=0; i<200; i++) {
+//            rotateStepper(1);
+//            delay(10);
+//        }
+//
+//        printf("* Moving 2nd steppermotor...\n");
+//        setDirectionStepper(2, 1);
+//        for(int i=0; i<200; i++) {
+//            rotateStepper(2);
+//            delay(10);
+//        }
+//
+//        setDirectionStepper(2, 0);
+//        for(int i=0; i<200; i++) {
+//            rotateStepper(2);
+//            delay(10);
+//        }
+
+        printf("* Moving forward..\n");
+        moveForwardButton();
+
 
         // TODO Action moveServomotor by 5° for example and check for distance again
         // Do action on motors
-        incrementAngle();
+        //incrementAngle
         // Sleep for 200ms
-        delay(200);
+//        delay(500);
     }
 
     // We shouldn't be here
@@ -77,16 +109,17 @@ void initialize_AllFunctions(){
     // Setup wiringPi
     wiringPiSetup();
 
-    // Setup DC motors
-    initializeDCMotors();
-    
-    // Setup ultrasonic sensor
-    printf("* Initializing ultrasonic sensor...\n");
+    // Setup steppermotors
+    printf("* Initializing steppermotors...\n");
+    initializeStepperMotor();
+
+    // Setup ultrasonic sensors
+    printf("* Initializing ultrasonic sensors...\n");
     initializeUS_sensor();
 
-    // Setup servomotor
+    // Setup servomotors
     printf("* Initializing servomotors...\n");
-    initializeServoMotor();*/
+    initializeServoMotor();
 
     printf("------------------------------------------------\n");
     printf("-             Initialize complete              -\n");
