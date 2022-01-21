@@ -44,12 +44,12 @@ int main(int argc, char *argv[]){
         // getCommand();
         // Check for obstacles with ultrasonic sensors
 //        checkDistance();
-        for(int i=0; i<100; i++) {
+        for(int i=0; i<200; i++) {
             incrementAngleTest();
             delay(10);
         }
 
-        for(int i=0; i<100; i++) {
+        for(int i=0; i<200; i++) {
             decrementAngleTest();
             delay(10);
         }
