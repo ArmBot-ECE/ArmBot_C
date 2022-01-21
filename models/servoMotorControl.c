@@ -58,7 +58,7 @@ void initializeServoMotor(){
     // Setup PWM
     pwmSetRange(1000);
     pwmSetClock(64);
-    setPulseServo(90);
+//    setPulseServo(90);
 }
 
 // TODO
