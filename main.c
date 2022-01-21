@@ -46,24 +46,28 @@ int main(int argc, char *argv[]){
 //        checkDistance();
 
         printf("* Moving 1st steppermotor...\n");
+        setDirectionStepper(1, 1);
         for(int i=0; i<200; i++) {
-            incrementAngleStepper(1);
+            rotateStepper(1);
             delay(10);
         }
 
+        setDirectionStepper(1, 0);
         for(int i=0; i<200; i++) {
-            decrementAngleStepper(1);
+            rotateStepper(1);
             delay(10);
         }
 
         printf("* Moving 2nd steppermotor...\n");
+        setDirectionStepper(2, 1);
         for(int i=0; i<200; i++) {
-            incrementAngleStepper(2);
+            rotateStepper(2);
             delay(10);
         }
 
+        setDirectionStepper(2, 1);
         for(int i=0; i<200; i++) {
-            decrementAngleStepper(2);
+            rotateStepper(2);
             delay(10);
         }
 

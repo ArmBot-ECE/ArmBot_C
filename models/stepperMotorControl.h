@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 void initializeStepperMotor();
-int incrementAngleStepper(int stepperMotorPosition);
-int decrementAngleStepper(int stepperMotorPosition);
+int setDirectionStepper(int stepperMotorPosition, int direction);
+int rotateStepper(int stepperMotorPosition);
 
 #endif /* stepperMotorControl_h */

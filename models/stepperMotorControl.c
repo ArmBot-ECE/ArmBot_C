@@ -25,45 +25,42 @@ void initializeStepperMotor(){
     pinMode(XDIR2, OUTPUT);
 }
 
-int incrementAngleStepper(int stepperMotorPosition) {
-    int stepperMotorPin;
-    int stepperMotorPinDirection;
+int setDirectionStepper(int stepperMotorPosition, int direction) {
+    if(direction != 0 && direction != 1) {
+        printf("Wrong argument for direction !\nClockwise = 1\nAnti-clockwise = 0\n");
+        return 1;
+    }
     switch(stepperMotorPosition) {
         case 1:
-            stepperMotorPin = XMOVE1;
             stepperMotorPinDirection = XDIR1;
             break;
         case 2:
-            stepperMotorPin = XMOVE2;
             stepperMotorPinDirection = XDIR2;
             break;
         default:
+            printf("Wrong argument for stepper position !\n1, 2 or 3 available\n");
             return 1;
             break;
     }
-    digitalWrite(stepperMotorPinDirection,1);
-    digitalWrite(stepperMotorPin,1);
-    digitalWrite(stepperMotorPin,0);
+    digitalWrite(stepperMotorPinDirection, direction);
     return 0;
 }
 
-int decrementAngleStepper(int stepperMotorPosition) {
+int rotateStepper(int stepperMotorPosition) {
     int stepperMotorPin;
-    int stepperMotorPinDirection;
     switch(stepperMotorPosition) {
         case 1:
             stepperMotorPin = XMOVE1;
-            stepperMotorPinDirection = XDIR1;
             break;
         case 2:
             stepperMotorPin = XMOVE2;
-            stepperMotorPinDirection = XDIR2;
             break;
         default:
+            printf("Wrong argument for stepper position !\n1, 2 or 3 available\n");
             return 1;
             break;
     }
-    digitalWrite(stepperMotorPinDirection,0);
+
     digitalWrite(stepperMotorPin,1);
     digitalWrite(stepperMotorPin,0);
     return 0;
