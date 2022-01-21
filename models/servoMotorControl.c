@@ -58,7 +58,7 @@ void initializeServoMotor(){
     // Setup PWM
     pwmSetRange(1000);
     pwmSetClock(64);
-    setPulse(90);
+    setPulseServo(90);
 }
 
 // TODO
@@ -78,7 +78,7 @@ void decrementAngleServo(int *currentAngle, int servomotorPosition) {
         // TODO Decrement by 1° ?
         *currentAngle--;
         // TODO Handle errors ?
-        setPulse(*currentAngle, servomotorPosition);
+        setPulseServo(*currentAngle, servomotorPosition);
     }
 }
 
