@@ -44,13 +44,21 @@ int main(int argc, char *argv[]){
         // getCommand();
         // Check for obstacles with ultrasonic sensors
 //        checkDistance();
-        incrementAngleTest();
+        for(i=0; i<100; i++) {
+            incrementAngleTest();
+            delay(10);
+        }
+
+        for(i=0; i<100; i++) {
+            decrementAngleTest();
+            delay(10);
+        }
 
         // TODO Action moveServomotor by 5° for example and check for distance again
         // Do action on motors
         //incrementAngle
         // Sleep for 200ms
-        delay(10);
+        delay(1000);
     }
 
     // We shouldn't be here
