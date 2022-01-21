@@ -65,7 +65,8 @@ void getCommand() {
 sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	//ls -l /dev/disk/by-uuid .
 	//426ad438-6e4a-a1bd-c4cf-d49c036205b8
-	uint32_t svc_uuid_int[] = { 0x426AD438, 0x6E4AA1BD, 0xC4CFD49C, 0x036205B8 };
+	//2f4adfbf-32e5-44ec-9323-1d08cbe8c29e
+	uint32_t svc_uuid_int[] = { 0x2F4ADFBF, 0x32E544EC, 0x93231D08, 0xCBE8C29E };
 	const char *service_name = "ArmBot Bluetooth server";
 	const char *svc_dsc = "An ArmBot server that interfaces with the ArmBot Android app";
 	const char *service_prov = "ArmBot";
