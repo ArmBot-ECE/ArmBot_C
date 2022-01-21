@@ -80,7 +80,7 @@ int main(int argc, char *argv[]){
         // Do action on motors
         //incrementAngle
         // Sleep for 200ms
-        delay(500);
+//        delay(500);
     }
 
     // We shouldn't be here
