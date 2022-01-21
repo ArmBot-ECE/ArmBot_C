@@ -18,12 +18,14 @@
     move forward for X cm
 */
 void moveForwardButton() {
+    pintf("kikoo");
     setDirectionStepper(1, 1);
-    setDirectionStepper(2, 1);
+    setDirectionStepper(2, 0);
     for(int i=0; i<50; i++) {
         rotateStepper(1);
         rotateStepper(2);
         rotateStepper(2);
+        delay(10);
     }
 
 }
