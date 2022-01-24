@@ -36,7 +36,7 @@ void checkDistance();
 int main(int argc, char *argv[]){
 
     // Initialize all sensors and functions
-//    initialize_AllFunctions();
+    initialize_AllFunctions();
 
     //Current angle of each servomotors
     int *currentAngle1, *currentAngle2, *currentAngle3;

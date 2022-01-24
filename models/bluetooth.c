@@ -41,8 +41,29 @@ bool initializeBluetooth() {
         // read data from the client
         memset(buf, 0, sizeof(buf));
         bytes_read = read(client, buf, sizeof(buf));
+
+        /* ---------------------------------------------------
+         *
+         * ---------------------------------------------------
+         */
         if( bytes_read > 0 ) {
             printf("received [%s]\n", buf);
+            printf("* Moving forward..\n");
+//            checkDistance();
+//            if () {
+//                printf("Attention");
+//                continue;
+//            }
+            switch (buf) {
+                case 1:
+//                    moveForwardButton();
+                        printf("On est dans le 1\n");
+                    break;
+                default:
+                    printf("Default\n");
+                    break;
+//
+            }
         }
     } while (bytes_read > 0);
 
@@ -99,27 +120,22 @@ sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	svc_class_list = sdp_list_append(0, &svc_class_uuid);
 	sdp_set_service_classes(&record, svc_class_list);
 
-	printf("1\n");
-
 	// set the Bluetooth profile information
 	sdp_uuid16_create(&profile.uuid, SERIAL_PORT_PROFILE_ID);
 	profile.version = 0x0100;
 	profile_list = sdp_list_append(0, &profile);
 	sdp_set_profile_descs(&record, profile_list);
 
-	printf("1\n");
 	// make the service record publicly browsable
 	sdp_uuid16_create(&root_uuid, PUBLIC_BROWSE_GROUP);
 	root_list = sdp_list_append(0, &root_uuid);
 	sdp_set_browse_groups(&record, root_list);
 
-	printf("1\n");
 	// set l2cap information
 	sdp_uuid16_create(&l2cap_uuid, L2CAP_UUID);
 	l2cap_list = sdp_list_append(0, &l2cap_uuid);
 	proto_list = sdp_list_append(0, l2cap_list);
 
-	printf("1\n");
 	// register the RFCOMM channel for RFCOMM sockets
 	sdp_uuid16_create(&rfcomm_uuid, RFCOMM_UUID);
 	channel = sdp_data_alloc(SDP_UINT8, &rfcomm_channel);
@@ -127,21 +143,17 @@ sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	sdp_list_append(rfcomm_list, channel);
 	sdp_list_append(proto_list, rfcomm_list);
 
-	printf("1\n");
 	access_proto_list = sdp_list_append(0, proto_list);
 	sdp_set_access_protos(&record, access_proto_list);
 
-	printf("1\n");
 	// set the name, provider, and description
 	sdp_set_info_attr(&record, service_name, service_prov, svc_dsc);
 
-	printf("3\n");
 	// connect to the local SDP server, register the service record,
 	// and disconnect
 	session = sdp_connect(BDADDR_ANY, BDADDR_LOCAL, SDP_RETRY_IF_BUSY);
 	sdp_record_register(session, &record, 0);
 
-	printf("2\n");
 	// cleanup
 	sdp_data_free(channel);
 	sdp_list_free(l2cap_list, 0);
