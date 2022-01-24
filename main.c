@@ -45,6 +45,7 @@ int main(int argc, char *argv[]){
 
     bool success = initializeBluetooth();
 
+    printf("Hello\n");
     while (1) {
         // TODO Security
 
