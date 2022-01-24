@@ -21,8 +21,7 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <sys/socket.h>
-#include <bluetooth/bluetooth.h>
-#include <bluetooth/bluetooth.h>
+//#include <bluetooth/bluetooth.h>
 #include <bluetooth/sdp.h>
 #include <bluetooth/sco.h>
 #include <bluetooth/sdp_lib.h>
