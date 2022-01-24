@@ -28,60 +28,6 @@
 #include <bluetooth/rfcomm.h>
 #include <bluetooth/l2cap.h>
 
-/*
-    Initialize bluetooth connection
-*/
-bool initializeBluetooth() {
-    // TODO modifier la taille du buf si possible
-	char buf[1024] = { 0 };
-    int s, bytes_read = -1;
-    int client = init_server();
-	int port = 3;
-
-    do {
-        // read data from the client
-        memset(buf, 0, sizeof(buf));
-        bytes_read = read(client, buf, sizeof(buf));
-
-        /* ---------------------------------------------------
-         *
-         * ---------------------------------------------------
-         */
-        if( bytes_read > 0 ) {
-            printf("received [%s]\n", buf);
-            printf("* Moving forward..\n");
-//            checkDistance();
-//            if () {
-//                printf("Attention");
-//                continue;
-//            }
-            switch (buf[0]) {
-                case '0':
-//                    moveForwardButton();
-                    printf("On est dans le 0\n");
-                    break;
-                default:
-                    printf("Default\n");
-                    break;
-//
-            }
-        }
-    } while (bytes_read > 0);
-
-    // close connection
-    printf("Closing connection.\n");
-    close(client);
-    close(s);
-    //sdp_close( session );
-
-    return true;
-}
-
-void getCommand() {
-    // TODO Get command from bluetooth
-}
-
-
 
 sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	//ls -l /dev/disk/by-uuid .

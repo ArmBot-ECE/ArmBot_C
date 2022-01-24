@@ -18,15 +18,12 @@
 #include "controllers/commandInterface.c"
 
 // Include prototype function
-void initialize_AllFunctions();
+void initialize_GPIODevices();
 void checkDistance();
+_Bool startServerBluetooth(void);
 
 // Command to compile with gcc:
 // gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt -lbluetooth
-
-// Global variables
-//int *currentAngle1, *currentAngle2, *currentAngle3;
-
 
 
 // --------------------------------------
@@ -34,63 +31,20 @@ void checkDistance();
 // --------------------------------------
 
 int main(int argc, char *argv[]){
+    // TODO Security
 
     // Initialize all sensors and functions
     initialize_AllFunctions();
+
 
     //Current angle of each servomotors
     int *currentAngle1, *currentAngle2, *currentAngle3;
     // Distance of 4 ultrasonic sensors
     int *distanceSensors;
 
-    bool success = initializeBluetooth();
+    bool success = startServerBluetooth();
 
-    printf("Hello\n");
-    while (1) {
-        // TODO Security
-
-        // TODO Retrieve action sent by the smartphone
-        // getCommand();
-        // Check for obstacles with ultrasonic sensors
-//        checkDistance();
-
-//        printf("* Moving 1st steppermotor...\n");
-//        setDirectionStepper(1, 1);
-//        for(int i=0; i<200; i++) {
-//            rotateStepper(1);
-//            delay(10);
-//        }
-//
-//        setDirectionStepper(1, 0);
-//        for(int i=0; i<200; i++) {
-//            rotateStepper(1);
-//            delay(10);
-//        }
-//
-//        printf("* Moving 2nd steppermotor...\n");
-//        setDirectionStepper(2, 1);
-//        for(int i=0; i<200; i++) {
-//            rotateStepper(2);
-//            delay(10);
-//        }
-//
-//        setDirectionStepper(2, 0);
-//        for(int i=0; i<200; i++) {
-//            rotateStepper(2);
-//            delay(10);
-//        }
-
-        printf("* Moving forward..\n");
-        moveForwardButton();
-
-
-        // TODO Action moveServomotor by 5° for example and check for distance again
-        // Do action on motors
-        //incrementAngle
-        // Sleep for 200ms
-//        delay(500);
-    }
-
+    // TODO Warning exit program
     // We shouldn't be here
     return 1;
 }
@@ -102,9 +56,9 @@ int main(int argc, char *argv[]){
         CONTROLLER METHODS
 */
 
-void initialize_AllFunctions(){
+void initialize_GPIODevices(){
     printf("------------------------------------------------\n");
-    printf("-  Starting initialize all peripheral devices  -\n");
+    printf("-     Starting initialize all GPIO devices     -\n");
     printf("------------------------------------------------\n");
 
     // Setup wiringPi
@@ -123,7 +77,7 @@ void initialize_AllFunctions(){
     initializeServoMotor();
 
     printf("------------------------------------------------\n");
-    printf("-             Initialize complete              -\n");
+    printf("-             Initialize completed             -\n");
     printf("------------------------------------------------\n\n\n");
 }
 
@@ -153,5 +107,50 @@ void checkDistance(int *distanceSensors) {
             printf("Obstacle found by sensor 4, distance : %d\n", *(distanceSensors+3));
         }
     }
+}
+
+bool startServerBluetooth() {
+    // TODO modifier la taille du buf si possible
+    char buf[1024] = { 0 };
+    int s, bytes_read = -1;
+    int client = init_server();
+    int port = 3;
+
+    do {
+        // read data from the client
+        memset(buf, 0, sizeof(buf));
+        bytes_read = read(client, buf, sizeof(buf));
+
+        /* ---------------------------------------------------
+         *
+         * ---------------------------------------------------
+         */
+        if( bytes_read > 0 ) {
+            printf("received [%s]\n", buf);
+//            checkDistance();
+//            if () {
+//                printf("Attention");
+//                continue;
+//            }
+            switch (buf[0]) {
+                case '0':
+                    printf("Moving forward...\n");
+                    moveForwardButton();
+                    break;
+                default:
+                    printf("Default\n");
+                    break;
+//
+            }
+        }
+    } while (bytes_read > 0);
+
+    // close connection
+    printf("Closing connection.\n");
+    close(client);
+    close(s);
+    //sdp_close( session );
+
+    return true;
 }
 
