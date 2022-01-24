@@ -55,9 +55,9 @@ bool initializeBluetooth() {
 //                continue;
 //            }
             switch (buf) {
-                case 1:
+                case '1':
 //                    moveForwardButton();
-                        printf("On est dans le 1\n");
+                    printf("On est dans le 1\n");
                     break;
                 default:
                     printf("Default\n");
