@@ -34,7 +34,7 @@ int main(int argc, char *argv[]){
     // TODO Security
 
     // Initialize all sensors and functions
-    initialize_AllFunctions();
+    initialize_GPIODevices();
 
 
     //Current angle of each servomotors
