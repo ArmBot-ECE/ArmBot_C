@@ -26,5 +26,10 @@
 #include <bluetooth/l2cap.h>
 
 _Bool initializeBluetooth(void);
+sdp_session_t *register_service(uint8_t rfcomm_channel);
+int init_server();
+char *read_server(int client);
+void write_server(int client, char *message);
+void getCommand();
 
 #endif /* bluetooth_h */
