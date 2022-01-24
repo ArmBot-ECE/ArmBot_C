@@ -34,10 +34,8 @@
 bool initializeBluetooth() {
 	char buf[1024] = { 0 };
     int s, bytes_read = -1;
-    printf("1\n");
     int client = init_server();
 	int port = 3;
-	printf("2\n");
 
     do {
         // read data from the client
@@ -144,6 +142,7 @@ sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	sdp_list_free(svc_class_list, 0);
 	sdp_list_free(profile_list, 0);
 
+	printf("Hello\n");
 	return session;
 }
 
