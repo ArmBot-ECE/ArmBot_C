@@ -32,6 +32,7 @@
     Initialize bluetooth connection
 */
 bool initializeBluetooth() {
+    // TODO modifier la taille du buf si possible
 	char buf[1024] = { 0 };
     int s, bytes_read = -1;
     int client = init_server();
@@ -55,9 +56,9 @@ bool initializeBluetooth() {
 //                continue;
 //            }
             switch (buf[0]) {
-                case '1':
+                case '0':
 //                    moveForwardButton();
-                    printf("On est dans le 1\n");
+                    printf("On est dans le 0\n");
                     break;
                 default:
                     printf("Default\n");
