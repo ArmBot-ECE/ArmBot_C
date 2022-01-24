@@ -34,8 +34,10 @@
 bool initializeBluetooth() {
 	char buf[1024] = { 0 };
     int s, bytes_read = -1;
+    printf("1\n");
     int client = init_server();
 	int port = 3;
+	printf("2\n");
 
     do {
         // read data from the client
