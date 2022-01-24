@@ -135,7 +135,7 @@ sdp_session_t *register_service(uint8_t rfcomm_channel) {
 	// set the name, provider, and description
 	sdp_set_info_attr(&record, service_name, service_prov, svc_dsc);
 
-	printf("1\n");
+	printf("3\n");
 	// connect to the local SDP server, register the service record,
 	// and disconnect
 	session = sdp_connect(BDADDR_ANY, BDADDR_LOCAL, SDP_RETRY_IF_BUSY);
