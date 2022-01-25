@@ -19,14 +19,14 @@
 */
 void moveForwardButton() {
     setDirectionStepper(1, 1);
-    setDirectionStepper(2, 0);
+//    setDirectionStepper(2, 0);
     for(int i=0; i<50; i++) {
         rotateStepper(1);
         delay(5);
-        rotateStepper(2);
-        delay(5);
-        rotateStepper(2);
-        delay(5);
+//        rotateStepper(2);
+//        delay(5);
+//        rotateStepper(2);
+//        delay(5);
     }
 
 }
