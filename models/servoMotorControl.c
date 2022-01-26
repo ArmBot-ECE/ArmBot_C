@@ -61,9 +61,6 @@ void initializeServoMotor(){
 //    setPulseServo(90);
 }
 
-// TODO
-//Attention avec cette fonction, le signal recu doit être périodique
-// S'il recoit 5000 1 par seconde il va très vite atteindre sa valeur max
 void incrementAngleServo(int *currentAngle, int servomotorPosition) {
     if (*currentAngle < 180 && *currentAngle >= 0) {
         // TODO Increment by 1° ?
