@@ -135,11 +135,11 @@ bool startServerBluetooth() {
             switch (buf[0]) {
                 case '1':
                     printf("Moving up...\n");
-                    moveForwardButton();
+                    moveUp();
                     break;
                 case '2':
                     printf("Moving down...\n");
-                    moveForwardButton();
+                    moveDown();
                     break;
                 case '6':
                     printf("Moving backward...\n");
