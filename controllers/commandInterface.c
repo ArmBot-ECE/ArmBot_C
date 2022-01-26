@@ -53,32 +53,44 @@ void moveBackwardButton() {
     left rotation for X ° cm ?
 */
 void leftRotationButton() {
-    // TODO
-    // Do something on stepper and servo
+    setDirectionStepper(1, 1);
+    for(int i=0; i<50; i++) {
+        rotateStepper(1);
+        delay(5);
+    }
 }
 
 /*
     right rotation for X ° cm ?
 */
 void rightRotationButton() {
-    // TODO
-    // Do something on stepper and servo
+    setDirectionStepper(1, 0);
+    for(int i=0; i<50; i++) {
+        rotateStepper(1);
+        delay(5);
+    }
 }
 
 /*
     move up for X cm
 */
 void moveUp() {
-    // TODO
-    // Do something on stepper and servo
+    setDirectionStepper(2, 1);
+    for(int i=0; i<50; i++) {
+        rotateStepper(2);
+        delay(5);
+    }
 }
 
 /*
     move down for X cm
 */
 void moveDown() {
-    // TODO
-    // Do something on stepper and servo
+    setDirectionStepper(2, 0);
+    for(int i=0; i<50; i++) {
+        rotateStepper(2);
+        delay(5);
+    }
 }
 
 /*
