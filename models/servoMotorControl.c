@@ -115,7 +115,7 @@ int setPulseServo(int angle, int servomotorPosition) {
 
     // It shouldn't be necessary but it's there for now
     if (angle <= 180 && angle >= 0) {
-        pwmWrite(servomotorPin, round(1.55*angle + 64));
+        pwmWrite(servomotorPin, round(1.55*angle + 80));
         return 0;
     } else {
         printf("Error with angle : %d\n", angle);
