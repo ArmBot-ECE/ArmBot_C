@@ -37,9 +37,11 @@ void moveForwardButton() {
 void moveBackwardButton() {
     // TODO
     // Do something on stepper and servo
-    setPulseServo(10, 1);
+    setPulseServo(0, 1);
     delay(500);
-    setPulseServo(170, 1);
+    setPulseServo(90, 1);
+    delay(500);
+    setPulseServo(180, 1);
     delay(500);
 //    setPulseServo(150, 1);
 //    delay(500);
