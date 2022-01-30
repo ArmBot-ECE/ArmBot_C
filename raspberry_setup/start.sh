@@ -23,6 +23,10 @@ sudo apt-get install -y sysbench
 sudo apt-get install -y libbluetooth-dev
 sudo apt-get install -y python3-pip
 sudo apt-get install -y rpi.gpio
+sudo apt-get install -y git-core
+sudo apt-get install -y git
+sudo apt-get install -y build-essential
+
 
 # Getting the repository
 sudo apt-get purge wiringpi 
@@ -52,7 +56,9 @@ sudo ./bluetooth.sh $1
 sudo cp -r rc.local /etc/
 
 # Compilation of the code 
-gcc -o main ./ArmBot_C/main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt -lbluetooth
+cd /etc/repo/ArmBot_C-main/
+gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt -lbluetooth
+
 
 # Reboot of the Raspberry 
 echo "Your Raspberry will reboot in..."
