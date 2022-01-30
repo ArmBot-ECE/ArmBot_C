@@ -21,7 +21,7 @@ send "agent on\r"
 send "scan on\r"
 #send_user "\nSleeping\r"
 send_user "\nRecherche du téléphone\r"
-sleep 10
+sleep 80
 send_user "\nJumelage\r"
 send "scan off\r"
 expect "Controller"
