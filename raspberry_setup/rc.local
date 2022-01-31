@@ -17,9 +17,10 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-#sudo python3 /etc/repo/shutdown.py
+#sudo python3 /etc/repo/ArmBot_C-main/raspberry_setup/shutdown.py
 sudo systemctl daemon-reload
 sudo systemctl restart bluetooth
-sudo /etc/repo/monitor.sh
+sudo sh /etc/repo/ArmBot_C-main/raspberry_setup/monitor.sh
+sudo python3 /etc/repo/ArmBot_C-main/raspberry_setup/shutdown.py
 
 exit 0
