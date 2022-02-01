@@ -167,6 +167,10 @@ bool startServerBluetooth() {
                     printf("Move right...\n");
                     moveRight();
                     break;
+                case '5':
+                    printf("Moving forward...\n");
+                    moveForwardButton();
+                    break;
                 case '6':
                     printf("Moving backward...\n");
                     moveBackwardButton();
