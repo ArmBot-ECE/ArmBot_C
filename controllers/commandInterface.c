@@ -18,7 +18,6 @@
     move forward for X cm
 */
 void moveForwardButton() {
-    }
 
 }
 
