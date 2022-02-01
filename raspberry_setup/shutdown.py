@@ -5,7 +5,7 @@
 #  ArmBot Raspberry Configuration
 #
 #  Created by Evann De Castro on 25/01/2022.
-#  Copyright Â© 2022 ArmBot. All rights reserved.
+#  Copyright © 2022 ArmBot. All rights reserved.
 #
 
 

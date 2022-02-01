@@ -9,7 +9,7 @@
 #
 
 
-until /etc/repo/main; do
+until /etc/repo/ArmBot_C-main/main; do
     echo "Server 'myserver' crashed with exit code $?.  Respawning.." >&2
     sleep 1
 done

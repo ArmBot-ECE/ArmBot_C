@@ -9,17 +9,17 @@
 #
 
 
-GROUPES_INTERDITS_LISTE="root"
+FORBIDDEN_GROUPS_LIST="root"
 
-for i in ${GROUPES_INTERDITS_LISTE}; do
+for i in ${FORBIDDEN_GROUPS_LIST}; do
 	if [[ $2 == $i ]] ; then
-		echo "Ce nom de groupe : $2 est interdit ; merci de choisir un groupe diffÃ©rent pour cet utilisateur"
+		echo "This group name : $2 is forbidden ; please choose a different group for the user"
 		exit 1
 	fi
 done
 
 sudo useradd $1 -g $2
 
-		echo "entrer le mot de passe"
+		echo "Please enter the password"
 
 sudo passwd $1
