@@ -17,6 +17,9 @@
 #include "models/stepperMotorControl.c"
 #include "controllers/commandInterface.c"
 
+//Global Variables
+public String speed = "v_1";
+
 // Include prototype function
 void initialize_GPIODevices();
 void checkDistance();
@@ -133,6 +136,21 @@ bool startServerBluetooth() {
 //                continue;
 //            }
             switch (buf[0]) {
+                case 'v_0.5':
+                    speed = 'v_0.5';
+                    break;
+                case 'v_0.75':
+                    speed = 'v_0.75';
+                    break;
+                case 'v_1':
+                    speed = 'v_1';
+                    break;
+                case 'v_1.25':
+                    speed = 'v_1.25';
+                    break;
+                case 'v_1.5':
+                    speed = 'v_1.5';
+                    break;
                 case '1':
                     printf("Moving up...\n");
                     moveUp();
@@ -142,18 +160,19 @@ bool startServerBluetooth() {
                     moveDown();
                     break;
                 case '3':
-                    printf("Left rotation...\n");
-                    leftRotationButton();
+                    printf("Moving left...\n");
+                    moveLeft();
                     break;
                 case '4':
-                    printf("Right rotation...\n");
-                    rightRotationButton();
+                    printf("Move right...\n");
+                    moveRight();
                     break;
                 case '6':
                     printf("Moving backward...\n");
                     moveBackwardButton();
                     break;
                 default:
+                    speed = 'v_1';
                     printf("Default\n");
                     break;
 //
