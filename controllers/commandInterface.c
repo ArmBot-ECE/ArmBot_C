@@ -62,11 +62,16 @@ void rightRotationButton() {
     move up for X cm
 */
 void moveUp() {
-    setDirectionStepper(2, 1);
+    setDirectionStepper(1, 0);
     for(int i=0; i<50; i++) {
-        rotateStepper(2);
+        rotateStepper(1);
         delay(5);
     }
+//    setDirectionStepper(2, 1);
+//    for(int i=0; i<50; i++) {
+//        rotateStepper(2);
+//        delay(5);
+//    }
 }
 
 /*
