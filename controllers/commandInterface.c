@@ -18,13 +18,23 @@
     move forward for X cm
 */
 void moveForwardButton() {
-
+    setDirectionStepper(3, 1);
+    for(int i=0; i<50; i++) {
+        rotateStepper(3);
+        delay(5);
+    }
 }
 
 /*
     move backward for X cm
 */
 void moveBackwardButton() {
+    setDirectionStepper(3, 0);
+    for(int i=0; i<50; i++) {
+        rotateStepper(3);
+        delay(5);
+    }
+
     // TODO
     // Do something on stepper and servo
 //    setPulseServo(0, 1);
