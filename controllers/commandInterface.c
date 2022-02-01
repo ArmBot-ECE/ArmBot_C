@@ -30,7 +30,7 @@ void moveForwardButton() {
 */
 void moveBackwardButton() {
     setDirectionStepper(3, 0);
-    for(int i=0; i<50; i++) {
+    for(int i=0; i<10; i++) {
         rotateStepper(3);
         delay(5);
     }
@@ -65,7 +65,7 @@ void rightRotationButton() {
 */
 void moveUp() {
     setDirectionStepper(2, 1);
-    for(int i=0; i<50; i++) {
+    for(int i=0; i<10; i++) {
         rotateStepper(2);
         delay(5);
     }
@@ -76,7 +76,7 @@ void moveUp() {
 */
 void moveDown() {
     setDirectionStepper(2, 0);
-    for(int i=0; i<50; i++) {
+    for(int i=0; i<10; i++) {
         rotateStepper(2);
         delay(5);
     }
@@ -87,7 +87,7 @@ void moveDown() {
 */
 void moveRight() {
     setDirectionStepper(1, 0);
-    for(int i=0; i<50; i++) {
+    for(int i=0; i<10; i++) {
         rotateStepper(1);
         delay(5);
     }
@@ -98,7 +98,7 @@ void moveRight() {
 */
 void moveLeft() {
     setDirectionStepper(1, 1);
-    for(int i=0; i<50; i++) {
+    for(int i=0; i<10; i++) {
         rotateStepper(1);
         delay(5);
     }
