@@ -40,13 +40,22 @@ void moveBackwardButton() {
     left rotation for X ° cm ?
 */
 void leftRotationButton() {
-
+    setDirectionStepper(1, 1);
+    for(int i=0; i<50; i++) {
+        rotateStepper(1);
+        delay(5);
+    }
 }
 
 /*
     right rotation for X ° cm ?
 */
 void rightRotationButton() {
+    setDirectionStepper(1, 0);
+    for(int i=0; i<50; i++) {
+        rotateStepper(1);
+        delay(5);
+    }
 }
 
 /*
@@ -75,20 +84,12 @@ void moveDown() {
     move right for X cm
 */
 void moveRight() {
-    setDirectionStepper(1, 0);
-    for(int i=0; i<50; i++) {
-        rotateStepper(1);
-        delay(5);
-    }
+
 }
 
 /*
     move left for X cm
 */
 void moveLeft() {
-    setDirectionStepper(1, 1);
-    for(int i=0; i<50; i++) {
-        rotateStepper(1);
-        delay(5);
-    }
+
 }
