@@ -18,15 +18,6 @@
     move forward for X cm
 */
 void moveForwardButton() {
-    setDirectionStepper(1, 1);
-//    setDirectionStepper(2, 0);
-    for(int i=0; i<50; i++) {
-        rotateStepper(1);
-        delay(5);
-//        rotateStepper(2);
-//        delay(5);
-//        rotateStepper(2);
-//        delay(5);
     }
 
 }
@@ -37,38 +28,27 @@ void moveForwardButton() {
 void moveBackwardButton() {
     // TODO
     // Do something on stepper and servo
-    setPulseServo(0, 1);
-    delay(1000);
-    setPulseServo(90, 1);
-    delay(1000);
-    setPulseServo(180, 1);
-    delay(1000);
-//    setPulseServo(150, 1);
-//    delay(500);
-//    setPulseServo(10, 1);
-//    delay(500);
+//    setPulseServo(0, 1);
+//    delay(1000);
+//    setPulseServo(90, 1);
+//    delay(1000);
+//    setPulseServo(180, 1);
+//    delay(1000);
+
 }
 
 /*
     left rotation for X ° cm ?
 */
 void leftRotationButton() {
-    setDirectionStepper(1, 1);
-    for(int i=0; i<50; i++) {
-        rotateStepper(1);
-        delay(5);
-    }
+
 }
 
 /*
     right rotation for X ° cm ?
 */
 void rightRotationButton() {
-    setDirectionStepper(1, 0);
-    for(int i=0; i<50; i++) {
-        rotateStepper(1);
-        delay(5);
-    }
+
 }
 
 /*
@@ -76,7 +56,7 @@ void rightRotationButton() {
 */
 void moveUp() {
     setDirectionStepper(2, 1);
-    for(int i=0; i<50; i++) {
+    for(int i=0; i<10; i++) {
         rotateStepper(2);
         delay(5);
     }
@@ -87,7 +67,7 @@ void moveUp() {
 */
 void moveDown() {
     setDirectionStepper(2, 0);
-    for(int i=0; i<50; i++) {
+    for(int i=0; i<10; i++) {
         rotateStepper(2);
         delay(5);
     }
@@ -97,14 +77,20 @@ void moveDown() {
     move right for X cm
 */
 void moveRight() {
-    // TODO
-    // Do something on stepper and servo
+    setDirectionStepper(1, 0);
+    for(int i=0; i<10; i++) {
+        rotateStepper(1);
+        delay(5);
+    }
 }
 
 /*
     move left for X cm
 */
 void moveLeft() {
-    // TODO
-    // Do something on stepper and servo
+    setDirectionStepper(1, 1);
+    for(int i=0; i<10; i++) {
+        rotateStepper(1);
+        delay(5);
+    }
 }

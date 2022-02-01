@@ -16,6 +16,8 @@
 #define XDIR1 9 // GPIO 3 - pin 5
 #define XMOVE2 0 // GPIO 17 - pin 11
 #define XDIR2 2 // GPIO 27 - pin 13
+#define XMOVE3 3 // GPIO 22 - pin 15
+#define XDIR3 12 // GPIO 10 - pin 19
 
 void initializeStepperMotor(){
     // I/O
@@ -23,6 +25,8 @@ void initializeStepperMotor(){
     pinMode(XDIR1, OUTPUT);
     pinMode(XMOVE2, OUTPUT);
     pinMode(XDIR2, OUTPUT);
+    pinMode(XMOVE3, OUTPUT);
+    pinMode(XDIR3, OUTPUT);
 }
 
 int setDirectionStepper(int stepperMotorPosition, int direction) {
@@ -37,6 +41,9 @@ int setDirectionStepper(int stepperMotorPosition, int direction) {
             break;
         case 2:
             stepperMotorPinDirection = XDIR2;
+            break;
+        case 3:
+            stepperMotorPinDirection = XDIR3;
             break;
         default:
             printf("Wrong argument for stepper position !\n1, 2 or 3 available\n");
@@ -55,6 +62,9 @@ int rotateStepper(int stepperMotorPosition) {
             break;
         case 2:
             stepperMotorPin = XMOVE2;
+            break;
+        case 3:
+            stepperMotorPin = XMOVE3;
             break;
         default:
             printf("Wrong argument for stepper position !\n1, 2 or 3 available\n");
