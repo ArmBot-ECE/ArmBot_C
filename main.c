@@ -18,7 +18,7 @@
 #include "controllers/commandInterface.c"
 
 //Global Variables
-public String speed = "v_1";
+//public String speed = "v_1";
 
 // Include prototype function
 void initialize_GPIODevices();
@@ -136,21 +136,21 @@ bool startServerBluetooth() {
 //                continue;
 //            }
             switch (buf[0]) {
-                case 'v_0.5':
-                    speed = 'v_0.5';
-                    break;
-                case 'v_0.75':
-                    speed = 'v_0.75';
-                    break;
-                case 'v_1':
-                    speed = 'v_1';
-                    break;
-                case 'v_1.25':
-                    speed = 'v_1.25';
-                    break;
-                case 'v_1.5':
-                    speed = 'v_1.5';
-                    break;
+//                case 'v_0.5':
+//                    speed = 'v_0.5';
+//                    break;
+//                case 'v_0.75':
+//                    speed = 'v_0.75';
+//                    break;
+//                case 'v_1':
+//                    speed = 'v_1';
+//                    break;
+//                case 'v_1.25':
+//                    speed = 'v_1.25';
+//                    break;
+//                case 'v_1.5':
+//                    speed = 'v_1.5';
+//                    break;
                 case '1':
                     printf("Moving up...\n");
                     moveUp();
@@ -172,7 +172,7 @@ bool startServerBluetooth() {
                     moveBackwardButton();
                     break;
                 default:
-                    speed = 'v_1';
+//                    speed = 'v_1';
                     printf("Default\n");
                     break;
 //
