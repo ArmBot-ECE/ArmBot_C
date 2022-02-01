@@ -18,13 +18,17 @@
     move forward for X cm
 */
 void moveForwardButton() {
-    for(int i=0; i<10; i++) {
-        setDirectionStepper(2, 1);
-        rotateStepper(2);
-        delay(5);
-        setDirectionStepper(1, 0);
-        rotateStepper(1);
-        delay(5);
+    for(int j=0; j<3; j++) {
+        for(int i=0; i<10; i++) {
+            setDirectionStepper(2, 1);
+            rotateStepper(2);
+            delay(5);
+        }
+        for(int i=0; i<10; i++) {
+            setDirectionStepper(1, 0);
+            rotateStepper(1);
+            delay(5);
+        }
     }
 }
 
@@ -32,14 +36,19 @@ void moveForwardButton() {
     move backward for X cm
 */
 void moveBackwardButton() {
-    for(int i=0; i<10; i++) {
-        setDirectionStepper(2, 0);
-        rotateStepper(2);
-        delay(5);
-        setDirectionStepper(1, 1);
-        rotateStepper(1);
-        delay(5);
+    for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < 10; i++) {
+            setDirectionStepper(2, 0);
+            rotateStepper(2);
+            delay(5);
+        }
+        for (int i = 0; i < 10; i++) {
+            setDirectionStepper(1, 1);
+            rotateStepper(1);
+            delay(5);
+        }
     }
+}
 
     // TODO
     // Do something on stepper and servo
@@ -49,8 +58,6 @@ void moveBackwardButton() {
 //    delay(1000);
 //    setPulseServo(180, 1);
 //    delay(1000);
-
-}
 
 /*
     left rotation for X ° cm ?
@@ -71,7 +78,7 @@ void rightRotationButton() {
 */
 void moveUp() {
     setDirectionStepper(2, 1);
-    for(int i=0; i<20; i++) {
+    for(int i=0; i<30; i++) {
         rotateStepper(2);
         delay(5);
     }
@@ -82,7 +89,7 @@ void moveUp() {
 */
 void moveDown() {
     setDirectionStepper(2, 0);
-    for(int i=0; i<20; i++) {
+    for(int i=0; i<30; i++) {
         rotateStepper(2);
         delay(5);
     }
@@ -93,7 +100,7 @@ void moveDown() {
 */
 void moveRight() {
     setDirectionStepper(1, 0);
-    for(int i=0; i<20; i++) {
+    for(int i=0; i<30; i++) {
         rotateStepper(1);
         delay(5);
     }
@@ -104,7 +111,7 @@ void moveRight() {
 */
 void moveLeft() {
     setDirectionStepper(1, 1);
-    for(int i=0; i<20; i++) {
+    for(int i=0; i<30; i++) {
         rotateStepper(1);
         delay(5);
     }
