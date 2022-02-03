@@ -1,8 +1,8 @@
 # Armbot_C
 
 ## Table of contents
-* [Repository overview](#Repository overview)
-* [Developper section](#Developper section)
+* [Repository overview](#repository-overview)
+* [Developper section](#developper-section)
 
 
 ## Project Goal
