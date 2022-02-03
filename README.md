@@ -36,4 +36,7 @@ Please follow instructions from this repository in order to properly use, in a u
 ## Developper section
 
 Code compiler used is **gcc**. You can compile code with :
+
+
 ```gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt -lbluetooth```
+
