@@ -1,82 +1,39 @@
-# Getting started
+# Armbot-Java-Android Studio
 
-Please follow this wiki to get started on this software.
-
-1. Clone this git repository.
-
-On your machine:
-On the raspberry, in your home folder (specific to your raspberry user):
-
-`$ git clone https://github.com/ArmBot-ECE/ArmBot_C.git`
-
-2. Create your own branch to start to develop:
-
-**You must not work on the Master branch**
-
-`$ git checkout -b <new_branch>`
-
-This action will create a new branch and switch to it at the same time.
-All the work you start now will be pushed to this new branch.
-
-3. Push your branch on this repository
-
-The branch is still in local on your forked repository, in order to make it visible for everyone you must push it to the git server.
-
-`$ git push -u origin <branchname>`
+## Table of contents
+* [Repository overview](#Repository overview)
+* [Developper section](#Developper section)
 
 
-4. Commit your changes
+## Project Goal
 
-You need to commit your changes before you can push them to this repository (still on your branch).
+'*Duchenne muscular dystrophy (DMD) is a genetic disorder characterized by progressive muscle degeneration and weakness due to the alterations of a protein called dystrophin that helps keep muscle cells intact*'. 
 
-`$ git commit -m "Your message here"`
+([Muscular Dystrophy Association](https://www.mda.org/disease/duchenne-muscular-dystrophy) - Duchenne Muscular Dystrophy (DMD) - Diseases (2021, April 29))
 
-5. Push your changes
+Approximately 4.78 people out of 100,000 possess the DMD in the world. To help those people improve their autonomy, we decided to create a robotic arm, accessible and customizable. Our goal was to create an arm, controllable with an android app, and under a ~400€ budget, using a 3D printer. 
 
-All the commits you have done must be pushed to the git server in order to make them visible for everyone.
+This project was possible thanks to [Niryo](https://niryo.com/fr/)'s 3D models of the arm, the FabLab of [ECE Paris](https://www.ece.fr/) school and [HandiTech](https://handitech-france.fr/).
 
-6. Merge your branch
+**The usage of the arm is under the responsability of the user.**
 
-When you are done, you must create a **Pull Request** in order to merge your branch with the **master**.
+To learn how to use our arm, please go through our [course](https://rise.articulate.com/share/YxWGhuafWEo22Ty-tBzGM7W94fOSDhKb#/).
 
-**All Changes merged to the master must be stable and properly implementing. The master is an equivalent of a production server**
+You'll find further informations in our GitHub and all the ressources in the following [link](https://drive.google.com/drive/folders/1EEAC_9meE7mFTIsfq7AG75mwahTAs3Wy?usp=sharing).
 
-Find all information about merging branches : [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+Finally, dont miss to visit our [YouTube](https://www.youtube.com/channel/UCcuagSu5sPNIdyUf5VJzb_w) page.
 
-# Branch/Collaboration
+## Repository overview
 
-Code must implemented in specific git branches. Then create a **Pull Request** pointing to **Master**.
+All this code must be implemented in a Raspberry Pi 3/4 in order to control all motors and sensors of the robotic arm ArmBot.
+You can find all source code structured in a model/controller.
 
-### Create and switch branch
+All this code is cloned and automatically compiled by the configuration scripts we have developped for this project.
+You can find these scripts in this [repository](https://github.com/ArmBot-ECE/ArmBot_Raspberry).
 
-Change branch using:
+Please follow instructions from this repository in order to properly use, in a user friendly manner, this C code.
 
-`$ git checkout <existing_branch>`
+## Developper section
 
-Create a new branch and directly switch to it:
-
-`$ git checkout -b <new_branch>`
-
-Push the branch on github:
-
-`$ git push origin <name_of_your_new_branch>`
-
-More info [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-
-# Synchronize your branch
-
-As said before, you must not work directly on **master**, but create your own branch and implement code in it.
-If necessary, you can synchronize your branch with **master** in order to fetch the last stable of **master**.
-
-`git pull origin master`
-
-# Commit changes
-
-Simply use:
-
-`$ git commit -m "Your message here"`
-
-
-# Merge branches
-
-Please read [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+Code compiler used is **gcc**. You can compile code with :
+```gcc -o main main.c -lwiringPi -lrt -lpthread -lm -lrt -lcrypt -lbluetooth```
