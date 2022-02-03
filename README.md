@@ -1,4 +1,4 @@
-# Armbot-Java-Android Studio
+# Armbot_C
 
 ## Table of contents
 * [Repository overview](#Repository overview)
